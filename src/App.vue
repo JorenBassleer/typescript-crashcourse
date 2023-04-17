@@ -1,6 +1,34 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+let price: number;
+price++;
+console.log(price);
+
+let canBeAnything: any = true;
+canBeAnything = 'test';
+
+const books: string[] = ['book 1', 'book 2', 'book 3', 'book 4'];
+books.push('book 5');
+
+const sum = ({x, y} : {x: number, y: number}) : void => {
+  return x + y;
+};
+
+console.log(sum({ x: 2, y: 5}));
+const greet = (name? : string | number) => {
+  if (name) console.log('name', name);
+  else console.log('hey');
+}
+greet('naam');
+
+let booleanOrString : string | number = 'name'; 
+booleanOrString = true;
+let pi: 3.14 = 3.14;
+const setProductSize = (size: 'small' | 'medium' | 'large') => {
+  //...
+};
+setProductSize('very large');
 </script>
 
 <template>
@@ -19,7 +47,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
   <RouterView />
 </template>
-
 <style scoped>
 header {
   line-height: 1.5;
