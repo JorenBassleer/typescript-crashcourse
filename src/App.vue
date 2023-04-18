@@ -64,6 +64,57 @@ const setProductSize = (size: ClothingSizes) => {
   //...
 };
 setProductSize(ClothingSizes.large);
+
+class StockProduct {
+  name: string
+  price: number
+
+  constructor(name: string, price: number) {
+    this.name = name;
+    this.price = price;
+  }
+  buy() : this {
+    console.log('buy special producr', this.price);
+    return this;
+  }
+}
+class SpecialProduct extends StockProduct {
+  color: string = 'gray'
+  size: ClothingSizes | undefined
+}
+class SpecialService extends StockProduct implements Emailable {
+  startTime: Date
+  endTime: Date
+
+  constructor(name: string, price: number, startTime: Date, endTime: Date) {
+    super(name, price);
+    this.startTime = startTime;
+    this.endTime = endTime;
+  }
+  emailBody() : string {
+    return `Thank you for purchasing ${this.name}. It starts at ${this.startTime}`;
+  }
+  emailSubject(): string {
+    return `Appointment`;
+  }
+}
+const pants = new SpecialProduct('Special pants', 55);
+pants.size = ClothingSizes.small;
+pants.color = 'white';
+pants.buy();
+
+const delivery = new SpecialService(
+  'takeaway',
+  55,
+  new Date('April 18, 2023 11:00:00'),
+  new Date('April 18, 2023 15:00:00')
+);
+delivery.buy();
+
+interface Emailable {
+  emailBody(): string,
+  emailSubject(): string,
+};
 </script>
 
 <template>
