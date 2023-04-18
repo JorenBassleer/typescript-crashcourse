@@ -25,10 +25,45 @@ greet('naam');
 let booleanOrString : string | number = 'name'; 
 booleanOrString = true;
 let pi: 3.14 = 3.14;
-const setProductSize = (size: 'small' | 'medium' | 'large') => {
+type Sizes = 'small' | 'medium' | 'large'
+;
+interface InventoryItem {
+  name: string,
+  price: number,
+};
+interface Product extends InventoryItem {
+  color?: string,
+};
+interface Service extends InventoryItem {
+  startTime: Date,
+  endTime: Date,
+};
+const tshirt : Product = {
+  name: 'T-shirt',
+  price: 20,
+};
+const consulting : Service = {
+  name: 'Teaching',
+  startTime: new Date('April 18, 2023 11:00:00'),
+  endTime: new Date('April 18, 2023 15:00:00'),
+}
+
+const purchaseItem = (item: InventoryItem) : InventoryItem => {
+  console.log(item.price);
+  return item;
+};
+
+purchaseItem(tshirt);
+
+enum ClothingSizes {
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
+};
+const setProductSize = (size: ClothingSizes) => {
   //...
 };
-setProductSize('very large');
+setProductSize(ClothingSizes.large);
 </script>
 
 <template>
