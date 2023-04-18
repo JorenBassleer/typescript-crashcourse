@@ -98,6 +98,11 @@ class SpecialService extends StockProduct implements Emailable {
     return `Appointment`;
   }
 }
+const sendEmail = (emailable: Emailable, to: string) => {
+  emailable.emailBody();
+  emailable.emailSubject();
+}
+
 const pants = new SpecialProduct('Special pants', 55);
 pants.size = ClothingSizes.small;
 pants.color = 'white';
