@@ -120,6 +120,64 @@ interface Emailable {
   emailBody(): string,
   emailSubject(): string,
 };
+
+const theCanvas = document.getElementById('theCanvas') as HTMLCanvasElement;
+const getNetPrice = (price: number, discount: number, format: boolean) : unknown => {
+  const netPrice = price * (1 - discount);
+  return format ? `${netPrice}` : netPrice;
+};
+const netPrice = getNetPrice(20, 10, true) as string;
+// const netPrice2 = <string>getNetPrice(20, 10, true);
+const netPrice2 = getNetPrice(20, 10, true) as string;
+
+interface Person {
+  name: string,
+  age: number,
+};
+
+const me: Person = {
+  name: 'Joren',
+  age: 25,
+};
+
+const clone = <T>(value: T): T => {
+  return JSON.parse(JSON.stringify(value));
+};
+const myClone = clone(me);
+const books2: string[] = ['book1', 'book2', 'book3', 'book4'];
+const books2Copy = clone<string[]>(books2);
+books2Copy.push('book1');
+
+const reverse = (value: string | string[]) => {
+  if (typeof value == 'string') {
+    return value.split('').reverse().join('');
+  } else {
+    return [...value].reverse();
+  }
+}
+
+class Employee {
+  firstName: string
+  lastName: string
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+}
+class Company {
+  name: string
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+const nameCalling = (entity: Employee | Company) => {
+  if (entity instanceof Employee) {
+    return `Hello ${entity.firstName} ${entity.lastName}`;
+  } else {
+    return `Hello ${entity.name}`;
+  }
+} 
 </script>
 
 <template>
