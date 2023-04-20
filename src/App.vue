@@ -1,183 +1,198 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-let price: number;
-price++;
-console.log(price);
+import { reactive, ref } from 'vue';
+import type User from './types/User';
+import type Emoji from './types/emoji';
 
-let canBeAnything: any = true;
-canBeAnything = 'test';
+const user: User = reactive({
+  id: 1,
+  username: 'Joren B',
+  settings: [],
+});
 
-const books: string[] = ['book 1', 'book 2', 'book 3', 'book 4'];
-books.push('book 5');
+console.log(user);
 
-const sum = ({x, y} : {x: number, y: number}) : void => {
-  return x + y;
-};
+const text = ref('idk')
+const emoji = ref<Emoji | null>(null)
+emoji.value = "idk";
+// let price: number;
+// price++;
+// console.log(price);
 
-console.log(sum({ x: 2, y: 5}));
-const greet = (name? : string | number) => {
-  if (name) console.log('name', name);
-  else console.log('hey');
-}
-greet('naam');
+// let canBeAnything: any = true;
+// canBeAnything = 'test';
 
-let booleanOrString : string | number = 'name'; 
-booleanOrString = true;
-let pi: 3.14 = 3.14;
-type Sizes = 'small' | 'medium' | 'large'
-;
-interface InventoryItem {
-  name: string,
-  price: number,
-};
-interface Product extends InventoryItem {
-  color?: string,
-};
-interface Service extends InventoryItem {
-  startTime: Date,
-  endTime: Date,
-};
-const tshirt : Product = {
-  name: 'T-shirt',
-  price: 20,
-};
-const consulting : Service = {
-  name: 'Teaching',
-  startTime: new Date('April 18, 2023 11:00:00'),
-  endTime: new Date('April 18, 2023 15:00:00'),
-}
+// const books: string[] = ['book 1', 'book 2', 'book 3', 'book 4'];
+// books.push('book 5');
 
-const purchaseItem = (item: InventoryItem) : InventoryItem => {
-  console.log(item.price);
-  return item;
-};
+// const sum = ({x, y} : {x: number, y: number}) : void => {
+//   return x + y;
+// };
 
-purchaseItem(tshirt);
+// console.log(sum({ x: 2, y: 5}));
+// const greet = (name? : string | number) => {
+//   if (name) console.log('name', name);
+//   else console.log('hey');
+// }
+// greet('naam');
 
-enum ClothingSizes {
-  small = 'small',
-  medium = 'medium',
-  large = 'large',
-};
-const setProductSize = (size: ClothingSizes) => {
-  //...
-};
-setProductSize(ClothingSizes.large);
+// let booleanOrString : string | number = 'name'; 
+// booleanOrString = true;
+// let pi: 3.14 = 3.14;
+// type Sizes = 'small' | 'medium' | 'large'
+// ;
+// interface InventoryItem {
+//   name: string,
+//   price: number,
+// };
+// interface Product extends InventoryItem {
+//   color?: string,
+// };
+// interface Service extends InventoryItem {
+//   startTime: Date,
+//   endTime: Date,
+// };
+// const tshirt : Product = {
+//   name: 'T-shirt',
+//   price: 20,
+// };
+// const consulting : Service = {
+//   name: 'Teaching',
+//   startTime: new Date('April 18, 2023 11:00:00'),
+//   endTime: new Date('April 18, 2023 15:00:00'),
+// }
 
-class StockProduct {
-  name: string
-  price: number
+// const purchaseItem = (item: InventoryItem) : InventoryItem => {
+//   console.log(item.price);
+//   return item;
+// };
 
-  constructor(name: string, price: number) {
-    this.name = name;
-    this.price = price;
-  }
-  buy() : this {
-    console.log('buy special producr', this.price);
-    return this;
-  }
-}
-class SpecialProduct extends StockProduct {
-  color: string = 'gray'
-  size: ClothingSizes | undefined
-}
-class SpecialService extends StockProduct implements Emailable {
-  startTime: Date
-  endTime: Date
+// purchaseItem(tshirt);
 
-  constructor(name: string, price: number, startTime: Date, endTime: Date) {
-    super(name, price);
-    this.startTime = startTime;
-    this.endTime = endTime;
-  }
-  emailBody() : string {
-    return `Thank you for purchasing ${this.name}. It starts at ${this.startTime}`;
-  }
-  emailSubject(): string {
-    return `Appointment`;
-  }
-}
-const sendEmail = (emailable: Emailable, to: string) => {
-  emailable.emailBody();
-  emailable.emailSubject();
-}
+// enum ClothingSizes {
+//   small = 'small',
+//   medium = 'medium',
+//   large = 'large',
+// };
+// const setProductSize = (size: ClothingSizes) => {
+//   //...
+// };
+// setProductSize(ClothingSizes.large);
 
-const pants = new SpecialProduct('Special pants', 55);
-pants.size = ClothingSizes.small;
-pants.color = 'white';
-pants.buy();
+// class StockProduct {
+//   name: string
+//   price: number
 
-const delivery = new SpecialService(
-  'takeaway',
-  55,
-  new Date('April 18, 2023 11:00:00'),
-  new Date('April 18, 2023 15:00:00')
-);
-delivery.buy();
+//   constructor(name: string, price: number) {
+//     this.name = name;
+//     this.price = price;
+//   }
+//   buy() : this {
+//     console.log('buy special producr', this.price);
+//     return this;
+//   }
+// }
+// class SpecialProduct extends StockProduct {
+//   color: string = 'gray'
+//   size: ClothingSizes | undefined
+// }
+// class SpecialService extends StockProduct implements Emailable {
+//   startTime: Date
+//   endTime: Date
 
-interface Emailable {
-  emailBody(): string,
-  emailSubject(): string,
-};
+//   constructor(name: string, price: number, startTime: Date, endTime: Date) {
+//     super(name, price);
+//     this.startTime = startTime;
+//     this.endTime = endTime;
+//   }
+//   emailBody() : string {
+//     return `Thank you for purchasing ${this.name}. It starts at ${this.startTime}`;
+//   }
+//   emailSubject(): string {
+//     return `Appointment`;
+//   }
+// }
+// const sendEmail = (emailable: Emailable, to: string) => {
+//   emailable.emailBody();
+//   emailable.emailSubject();
+// }
 
-const theCanvas = document.getElementById('theCanvas') as HTMLCanvasElement;
-const getNetPrice = (price: number, discount: number, format: boolean) : unknown => {
-  const netPrice = price * (1 - discount);
-  return format ? `${netPrice}` : netPrice;
-};
-const netPrice = getNetPrice(20, 10, true) as string;
-// const netPrice2 = <string>getNetPrice(20, 10, true);
-const netPrice2 = getNetPrice(20, 10, true) as string;
+// const pants = new SpecialProduct('Special pants', 55);
+// pants.size = ClothingSizes.small;
+// pants.color = 'white';
+// pants.buy();
 
-interface Person {
-  name: string,
-  age: number,
-};
+// const delivery = new SpecialService(
+//   'takeaway',
+//   55,
+//   new Date('April 18, 2023 11:00:00'),
+//   new Date('April 18, 2023 15:00:00')
+// );
+// delivery.buy();
 
-const me: Person = {
-  name: 'Joren',
-  age: 25,
-};
+// interface Emailable {
+//   emailBody(): string,
+//   emailSubject(): string,
+// };
 
-const clone = <T>(value: T): T => {
-  return JSON.parse(JSON.stringify(value));
-};
-const myClone = clone(me);
-const books2: string[] = ['book1', 'book2', 'book3', 'book4'];
-const books2Copy = clone<string[]>(books2);
-books2Copy.push('book1');
+// const theCanvas = document.getElementById('theCanvas') as HTMLCanvasElement;
+// const getNetPrice = (price: number, discount: number, format: boolean) : unknown => {
+//   const netPrice = price * (1 - discount);
+//   return format ? `${netPrice}` : netPrice;
+// };
+// const netPrice = getNetPrice(20, 10, true) as string;
+// // const netPrice2 = <string>getNetPrice(20, 10, true);
+// const netPrice2 = getNetPrice(20, 10, true) as string;
 
-const reverse = (value: string | string[]) => {
-  if (typeof value == 'string') {
-    return value.split('').reverse().join('');
-  } else {
-    return [...value].reverse();
-  }
-}
+// interface Person {
+//   name: string,
+//   age: number,
+// };
 
-class Employee {
-  firstName: string
-  lastName: string
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-}
-class Company {
-  name: string
-  constructor(name: string) {
-    this.name = name;
-  }
-}
+// const me: Person = {
+//   name: 'Joren',
+//   age: 25,
+// };
 
-const nameCalling = (entity: Employee | Company) => {
-  if (entity instanceof Employee) {
-    return `Hello ${entity.firstName} ${entity.lastName}`;
-  } else {
-    return `Hello ${entity.name}`;
-  }
-} 
+// const clone = <T>(value: T): T => {
+//   return JSON.parse(JSON.stringify(value));
+// };
+// const myClone = clone(me);
+// const books2: string[] = ['book1', 'book2', 'book3', 'book4'];
+// const books2Copy = clone<string[]>(books2);
+// books2Copy.push('book1');
+
+// const reverse = (value: string | string[]) => {
+//   if (typeof value == 'string') {
+//     return value.split('').reverse().join('');
+//   } else {
+//     return [...value].reverse();
+//   }
+// }
+
+// class Employee {
+//   firstName: string
+//   lastName: string
+//   constructor(firstName: string, lastName: string) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+// }
+// class Company {
+//   name: string
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+// }
+
+// const nameCalling = (entity: Employee | Company) => {
+//   if (entity instanceof Employee) {
+//     return `Hello ${entity.firstName} ${entity.lastName}`;
+//   } else {
+//     return `Hello ${entity.name}`;
+//   }
+// } 
 </script>
 
 <template>
@@ -186,8 +201,8 @@ const nameCalling = (entity: Employee | Company) => {
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-
       <nav>
+        <input type="text" v-model="text">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
