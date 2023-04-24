@@ -1,21 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import { reactive, ref } from 'vue';
-import type User from './types/User';
-import type Emoji from './types/emoji';
 
-const user: User = reactive({
-  id: 1,
-  username: 'Joren B',
-  settings: [],
-});
-
-console.log(user);
-
-const text = ref('idk')
-const emoji = ref<Emoji | null>(null)
-emoji.value = "idk";
 // let price: number;
 // price++;
 // console.log(price);
@@ -200,12 +186,15 @@ emoji.value = "idk";
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld
+        msg="You did it!"
+        @@create=""
+      />
       <nav>
-        <input type="text" v-model="text">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+
     </div>
   </header>
 
