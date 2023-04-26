@@ -5,6 +5,7 @@ defineProps<{
 import { reactive, ref, computed, defineEmits } from 'vue';
 import type User from '../types/User';
 import type Emoji from '../types/Emoji';
+import type Entry from '@/types/Entry';
 
 const user: User = reactive({
   id: 1,
@@ -12,19 +13,34 @@ const user: User = reactive({
   settings: [],
 });
 
-defineEmits(['@create']);
-const text = ref('idk')
+// defineEmits(['@create']);
+const emit = defineEmits<{
+  (e: '@create', entry: Entry): void;
+}>();
+const body = ref('idk')
 const emoji = ref<Emoji | null>(null)
-const charCount = computed(() => text.value.length);
+const charCount = computed(() => body.value.length);
 const maxChars = 280;
 const handleTextInput = (e: Event) => {
   const input = e.target as HTMLInputElement;
   if (input.value.length < maxChars) {
-    text.value = input.value
+    body.value = input.value
   } else {
-    text.value = input.value = input.value.substring(0, maxChars);
+    body.value = input.value = input.value.substring(0, maxChars);
   }
 }
+const handleFormSubmit = () => {
+  emit('@create', {
+    body: body.value,
+    emoji: emoji.value,
+    createdAt: new Date(),
+    userId: 1,
+    _id: Math.random(),
+  });
+  body.value = '';
+  emoji.value = null;
+};
+
 </script>
 
 <template>
@@ -32,9 +48,11 @@ const handleTextInput = (e: Event) => {
     <h1 class="green">{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with
-      <form @submit.prevent="$emit('@create', { text })">
-      <input type="text"
-        :value="text"
+      <form
+        @submit.prevent="handleFormSubmit">
+      <input 
+        type="text"
+        :value="body"
         @keyup="handleTextInput"
       >
     </form>

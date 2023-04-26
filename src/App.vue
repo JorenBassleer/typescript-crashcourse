@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-
+import type Entry from './types/Entry';
+import { ref } from 'vue';
 // let price: number;
 // price++;
 // console.log(price);
@@ -178,7 +179,12 @@ import HelloWorld from './components/HelloWorld.vue'
 //   } else {
 //     return `Hello ${entity.name}`;
 //   }
-// } 
+// }
+const entries = ref<Entry[]>([]);
+const handleCreateEntry = (entry: Entry) => {
+  entries.value.unshift(entry);
+};
+
 </script>
 
 <template>
@@ -188,13 +194,20 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <HelloWorld
         msg="You did it!"
-        @@create=""
+        @@create="handleCreateEntry"
       />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
-
+      <div
+        v-for="entry in entries"
+        :key="entry._id"
+      >
+        <div>
+          {{ entry.createdAt }} {{ entry.body }} {{  entry.userId }}
+        </div>
+      </div>
     </div>
   </header>
 
