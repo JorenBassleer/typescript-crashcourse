@@ -2,17 +2,12 @@
 defineProps<{
   msg: string
 }>()
-import { reactive, ref, computed, defineEmits } from 'vue';
-import type User from '../types/User';
+import { ref, computed, defineEmits, onMounted, inject } from 'vue';
 import type Emoji from '../types/Emoji';
 import type Entry from '@/types/Entry';
+import { userInjectionKey } from '@/injectionKeys';
 
-const user: User = reactive({
-  id: 1,
-  username: 'Joren B',
-  settings: [],
-});
-
+const injectedUser = inject(userInjectionKey);
 // defineEmits(['@create']);
 const emit = defineEmits<{
   (e: '@create', entry: Entry): void;
@@ -40,17 +35,19 @@ const handleFormSubmit = () => {
   body.value = '';
   emoji.value = null;
 };
-
+const input = ref<HTMLInputElement | null>(null);
+onMounted(() => input.value?.focus());
 </script>
 
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
+      You’ve successfully created a project with {{ injectedUser?.username || 'anon' }}
       <form
         @submit.prevent="handleFormSubmit">
       <input 
+        ref="input"
         type="text"
         :value="body"
         @keyup="handleTextInput"

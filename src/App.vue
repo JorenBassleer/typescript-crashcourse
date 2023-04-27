@@ -2,7 +2,10 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import type Entry from './types/Entry';
-import { ref } from 'vue';
+import { provide, reactive, ref, type InjectionKey, inject } from 'vue';
+import EntryCard from './components/EntryCard.vue';
+import type User from './types/User';
+import { userInjectionKey } from './injectionKeys';
 // let price: number;
 // price++;
 // console.log(price);
@@ -180,11 +183,17 @@ import { ref } from 'vue';
 //     return `Hello ${entity.name}`;
 //   }
 // }
+const user: User = reactive({
+  id: 1,
+  username: 'Joren B',
+  settings: [],
+});
+provide(userInjectionKey, user);
+
 const entries = ref<Entry[]>([]);
 const handleCreateEntry = (entry: Entry) => {
   entries.value.unshift(entry);
 };
-
 </script>
 
 <template>
@@ -204,9 +213,9 @@ const handleCreateEntry = (entry: Entry) => {
         v-for="entry in entries"
         :key="entry._id"
       >
-        <div>
-          {{ entry.createdAt }} {{ entry.body }} {{  entry.userId }}
-        </div>
+      <EntryCard
+        :entry="entry"
+      />
       </div>
     </div>
   </header>
