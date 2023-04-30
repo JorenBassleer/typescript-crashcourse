@@ -200,7 +200,6 @@ const handleCreateEntry = (entry: Entry) => {
 };
 onMounted(async() => {
   await applianceStore.fetchAppliances();
-  console.log(appliances.value);
 });
 </script>
 

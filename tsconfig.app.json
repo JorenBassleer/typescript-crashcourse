@@ -5,6 +5,7 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "typeRoots": ["./global.d.ts"],
     "paths": {
       "@/*": ["./src/*"]
     }
