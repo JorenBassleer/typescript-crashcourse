@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import HelloWorld from './components/HelloWorld.vue'
 import type Entry from './types/Entry';
-import { provide, reactive, ref, type InjectionKey, inject } from 'vue';
+import { provide, reactive, ref, type InjectionKey, inject, onMounted } from 'vue';
 import EntryCard from './components/EntryCard.vue';
 import type User from './types/User';
 import { userInjectionKey } from './injectionKeys';
+import { useApplianceStore } from './stores/appliance';
 // let price: number;
 // price++;
 // console.log(price);
@@ -183,6 +185,8 @@ import { userInjectionKey } from './injectionKeys';
 //     return `Hello ${entity.name}`;
 //   }
 // }
+const applianceStore = useApplianceStore();
+const { appliances } = storeToRefs(applianceStore);
 const user: User = reactive({
   id: 1,
   username: 'Joren B',
@@ -194,6 +198,10 @@ const entries = ref<Entry[]>([]);
 const handleCreateEntry = (entry: Entry) => {
   entries.value.unshift(entry);
 };
+onMounted(async() => {
+  await applianceStore.fetchAppliances();
+  console.log(appliances.value);
+});
 </script>
 
 <template>
