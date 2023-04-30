@@ -199,7 +199,7 @@ const handleCreateEntry = (entry: Entry) => {
   entries.value.unshift(entry);
 };
 onMounted(async() => {
-  await applianceStore.fetchAppliances();
+  await applianceStore.setAppliances();
 });
 </script>
 
