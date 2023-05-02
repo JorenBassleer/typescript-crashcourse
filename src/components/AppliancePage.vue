@@ -21,9 +21,11 @@ import { storeToRefs } from 'pinia'
 const applianceStore = useApplianceStore();
 
 const { appliances } = storeToRefs(applianceStore);
-for (const appliance in appliances.value) {
-  console.log('appliances:', appliances.value);
-  console.log('appliance:', appliance);
+console.log('appliances pre for', appliances.value);
+if (appliances.value !== null) {
+  for (const appliance of appliances.value) {
+    console.log('appliance:', appliance._id);
+  }
 }
 console.log('component appliuances:', appliances.value);
 onMounted(async () => {
