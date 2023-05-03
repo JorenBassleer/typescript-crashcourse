@@ -7,14 +7,13 @@
     </div>
 </template>
 <script setup lang="ts">
-import { onMounted, type ref } from 'vue';
+import { onMounted } from 'vue';
 import { useApplianceStore } from '../stores/appliance';
-import type Appliance from '@/types/Appliance';
 import { storeToRefs } from 'pinia'
 
 const applianceStore = useApplianceStore();
 
-const appliances = storeToRefs(applianceStore).appliances as ref<Appliance[]>;
+const { appliances } = storeToRefs(applianceStore);
 
 console.log('component appliuances:', appliances.value);
 onMounted(async () => {

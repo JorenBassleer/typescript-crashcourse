@@ -1,4 +1,4 @@
-import { Ref, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { getAppliances, deleteAppliance as deleteApplianceAPI } from '@/api/appliance';
 import type Appliance from "../types/Appliance";
@@ -6,7 +6,7 @@ import type { AxiosResponse } from 'axios';
 
 
 export const useApplianceStore = defineStore('appliance', () => {
-  const appliances = Ref<Appliance[]>;
+  const appliances = ref<Appliance[]>([]);
 
   const setAppliances = async (): Promise<void> => {
     try {
