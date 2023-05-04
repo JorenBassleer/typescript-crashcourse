@@ -1,4 +1,5 @@
 import type Brand from "./Brand";
+import type BaseRecord from "./Record";
 import type TypeOfAppliance from "./TypeOfAppliance";
 
 export interface BaseAppliance {
@@ -7,8 +8,4 @@ export interface BaseAppliance {
   type: TypeOfAppliance;
   brand: Brand;
 }
-export interface ApplianceRecord extends BaseAppliance {
-  _id: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+export interface ApplianceRecord extends BaseAppliance, BaseRecord { };

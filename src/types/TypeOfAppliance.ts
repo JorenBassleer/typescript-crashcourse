@@ -1,6 +1,6 @@
-export default interface TypeOfAppliance {
-  _id: string;
+import type BaseRecord from "./Record";
+
+export interface BaseTypeOfAppliance {
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
+export interface TypeOfApplianceRecord extends BaseTypeOfAppliance, BaseRecord {}

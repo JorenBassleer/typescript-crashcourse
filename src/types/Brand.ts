@@ -1,6 +1,6 @@
-export default interface Brand {
-  _id: string;
+import type BaseRecord from "./Record";
+
+export interface BaseBrand {
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
+export interface BrandRecord extends BaseBrand, BaseRecord {};
