@@ -1,9 +1,8 @@
-import type Appliance from "./Appliance";
-import type User from "./User";
+import type BaseRecord from "./Record";
 
-export default interface Incident {
-  _id: string;
-  user: User;
-  appliance: Appliance;
+export interface Incident {
+  user: string;
+  appliance: string;
   hasSolved: boolean;
 }
+export interface IncidentRecord extends BaseRecord { };

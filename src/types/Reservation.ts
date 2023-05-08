@@ -1,6 +1,6 @@
+import type BaseRecord from "./Record";
 
-export default interface Reservation {
-  _id: string;
+export interface BaseReservation {
   name: string;
   details?: string;
   start: Date;
@@ -10,4 +10,6 @@ export default interface Reservation {
   amounts: number[];
   createdAt: Date;
   updatedAt: Date;
-}
+};
+
+export interface ReservationRecord extends BaseRecord, BaseReservation { };
