@@ -1,4 +1,4 @@
-import type { TypeOfApplianceRecord, BaseTypeOfAppliance } from '@/types/TypeOfAppliance; 
+import type { TypeOfApplianceRecord, BaseTypeOfAppliance } from '@/types/TypeOfAppliance'; 
 import axios, { type AxiosResponse } from 'axios';
 
 
