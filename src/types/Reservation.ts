@@ -1,5 +1,3 @@
-import type Appliance from "./Appliance";
-import type User from "./User";
 
 export default interface Reservation {
   _id: string;
@@ -7,8 +5,8 @@ export default interface Reservation {
   details?: string;
   start: Date;
   end: Date;
-  user: User;
-  appliances: Appliance[];
+  user: '';
+  appliances: string[];
   amounts: number[];
   createdAt: Date;
   updatedAt: Date;

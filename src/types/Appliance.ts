@@ -1,11 +1,9 @@
-import type Brand from "./Brand";
 import type BaseRecord from "./Record";
-import type TypeOfAppliance from "./TypeOfAppliance";
 
 export interface BaseAppliance {
   name: string;
   details: string;
-  type: TypeOfAppliance;
-  brand: Brand;
+  type: '';
+  brand: '';
 }
 export interface ApplianceRecord extends BaseAppliance, BaseRecord { };
