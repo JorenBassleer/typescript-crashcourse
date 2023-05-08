@@ -11,11 +11,11 @@ export const getBrand = async (id: string): Promise<BrandRecord> => {
   return data;
 };
 export const createBrand = async (brand: BaseBrand): Promise<BrandRecord> => {
-  const { data } = await axios.post<BrandRecord>(`${import.meta.env.VITE_API_URL}/appliance`, brand);
+  const { data } = await axios.post<BrandRecord>(`${import.meta.env.VITE_API_URL}/brand`, brand);
   return data;
 };
 export const updateBrand = async (brand: BaseBrand): Promise<BrandRecord> => {
-  const { data } = await axios.post<BrandRecord>(`${import.meta.env.VITE_API_URL}/appliance`, brand);
+  const { data } = await axios.post<BrandRecord>(`${import.meta.env.VITE_API_URL}/brand`, brand);
   return data;
 };
 export const deleteBrand = async (id: string): Promise<AxiosResponse> => {
