@@ -6,27 +6,49 @@
       type="text" 
       name="name" 
     >
+    <section
+      v-if="brands.length > 0"
+    >
+      <article
+        v-for="brand in brands"
+        :key="brand._id"
+      >
+      </article>
+    </section>
+    <section v-if="typesOfAppliance.length > 0">
+      <article
+        v-for="typeOfAppliance in typesOfAppliance"
+        :key="typeOfAppliance._id"
+      >
+      </article>
+    </section>
   </form>
 </template>
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { ref } from 'vue';
 import type { BaseAppliance } from '@/types/Appliance';
-import type TypeOfAppliance from "@/types/TypeOfAppliance";
-import type Brand from '@/types/Brand';
+import type { BaseTypeOfAppliance} from "@/types/TypeOfAppliance";
+import type { BaseBrand } from '@/types/Brand';
+import { storeToRefs } from 'pinia'
+import { useBrandStore } from '@/stores/brand';
+import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
 
-const chosenType : TypeOfAppliance = reactive({
+const typeOfApplianceStore = useTypeOfApplianceStore();
+const brandStore = useBrandStore();
+
+const { typesOfAppliance } = storeToRefs(typeOfApplianceStore);
+const { brands } = storeToRefs(brandStore);
+
+const chosenType = ref<BaseTypeOfAppliance>({
   name: '',
-  _id: '',
 });
-const chosenBrand : Brand = reactive({
+const chosenBrand = ref<BaseBrand>({
   name: '',
-  _id: '',
 });
-const newAppliance: BaseAppliance = reactive({
-  _id: 'idk',
+const newAppliance = ref<BaseAppliance>({
   name: '',
   details: '',
-  type: chosenType,
-  brand: chosenBrand,
+  brand: '',
+  type: '',
 });
 </script>

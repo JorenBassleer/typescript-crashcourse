@@ -5,12 +5,11 @@ import type { TypeOfApplianceRecord, BaseTypeOfAppliance } from "@/types/TypeOfA
 
 
 export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
-  const fetchedTypes = ref<TypeOfApplianceRecord[]>();
-  const types = computed(() => fetchedTypes.value);
+  const typesOfAppliance = ref<TypeOfApplianceRecord[]>([]);
 
   const setTypeOfAppliance = async () : Promise<void> => {
     try {
-      fetchedTypes.value = await getTypes();
+      typesOfAppliance.value = await getTypes();
     } catch (error) {
       console.error(error);
     }
@@ -22,5 +21,5 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
       console.error(error);
     }
   };
-  return { setTypeOfAppliance, createTypeOfAppliance, types }
+  return { setTypeOfAppliance, createTypeOfAppliance, typesOfAppliance }
 })
