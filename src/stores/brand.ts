@@ -1,16 +1,15 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { getBrands, createBrand as createBrandAPI } from '@/api/brand';
 import type { BrandRecord, BaseBrand } from "../types/Brand";
 
 
 export const useBrandStore = defineStore('brand', () => {
-  const fetchedBrands = ref<BrandRecord[]>();
-  const brands = computed(() => fetchedBrands.value);
+  const brands = ref<BrandRecord[]>([]);
 
   const setBrands = async () : Promise<void> => {
     try {
-      fetchedBrands.value = await getBrands();
+      brands.value = await getBrands();
     } catch (error) {
       console.error(error);
     }
