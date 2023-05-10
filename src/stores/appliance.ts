@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import { getAppliances, deleteAppliance as deleteApplianceAPI } from '@/api/appliance';
-import type { ApplianceRecord } from "../types/Appliance";
+import { getAppliances, deleteAppliance as deleteApplianceAPI, createAppliance as createApplianceAPI } from '@/api/appliance';
+import type { ApplianceRecord, BaseAppliance } from "../types/Appliance";
 import type { AxiosResponse } from 'axios';
 
 
@@ -24,5 +24,19 @@ export const useApplianceStore = defineStore('appliance', () => {
       return <AxiosResponse>error;
     }
   };
-  return { setAppliances, deleteAppliance, appliances }
+  // Idk if i return this or an actual value
+  const createAppliance = async (appliance: BaseAppliance) : Promise<void> => {
+    try {
+      console.log('hier 1');
+      await createApplianceAPI(appliance);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  return { 
+    setAppliances,
+    deleteAppliance,
+    createAppliance,
+    appliances
+  }
 })

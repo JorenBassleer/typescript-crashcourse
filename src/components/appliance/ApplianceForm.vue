@@ -2,7 +2,7 @@
   <h1>Appliance form</h1>
   <form
     v-if="!isSubmitting" 
-    @submit="handleSubmitForm"
+    @submit.prevent="handleSubmitForm"
   >
     Name
     <input 
@@ -38,6 +38,7 @@
         </option>
       </select>
     </section>
+    <button type="submit">Submit</button>
   </form>
   <section v-else>
     Submitting....
@@ -68,7 +69,7 @@ const newAppliance = ref<BaseAppliance>({
 const handleSubmitForm = async () : Promise<void> => {
   try {
     isSubmitting.value = true;
-    applianceStore.createAppliance(newAppliance.value);
+    await applianceStore.createAppliance(newAppliance.value);
   } catch (error) {
     // idk yet
   } finally {
@@ -76,3 +77,8 @@ const handleSubmitForm = async () : Promise<void> => {
   }
 };
 </script>
+<style scoped>
+* {
+  background-color: blue;
+}
+</style>

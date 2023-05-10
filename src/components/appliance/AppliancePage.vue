@@ -7,18 +7,22 @@
     >
     {{ appliance.name || 'Unknown' }}
     </div>
+    <button @click="showForm = !showForm">Create Appliance</button>
+    <ApplianceForm
+      v-if="showForm === true" 
+    />
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useApplianceStore } from '../stores/appliance';
+import { onMounted, ref } from 'vue';
+import { useApplianceStore } from '@/stores/appliance';
+import ApplianceForm from './ApplianceForm.vue';
 import { storeToRefs } from 'pinia'
 
 const applianceStore = useApplianceStore();
 
 const { appliances } = storeToRefs(applianceStore);
-
-console.log('component appliuances:', appliances.value);
+const showForm = ref<Boolean>(false);
 onMounted(async () => {
   await applianceStore.setAppliances();
 });
