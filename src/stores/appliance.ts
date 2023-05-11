@@ -27,7 +27,6 @@ export const useApplianceStore = defineStore('appliance', () => {
   // Idk if i return this or an actual value
   const createAppliance = async (appliance: BaseAppliance) : Promise<void> => {
     try {
-      console.log('hier 1');
       await createApplianceAPI(appliance);
     } catch (error) {
       console.error(error);
