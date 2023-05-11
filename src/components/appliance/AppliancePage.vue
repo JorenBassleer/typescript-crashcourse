@@ -24,6 +24,6 @@ const applianceStore = useApplianceStore();
 const { appliances } = storeToRefs(applianceStore);
 const showForm = ref<Boolean>(false);
 onMounted(async () => {
-  await applianceStore.setAppliances();
+  if (appliances.value.length === 0) await applianceStore.setAppliances();
 });
 </script>
