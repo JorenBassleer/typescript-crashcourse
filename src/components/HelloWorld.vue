@@ -3,8 +3,6 @@ defineProps<{
   msg: string
 }>()
 import { ref, computed, defineEmits, onMounted, inject } from 'vue';
-import type Emoji from '../types/Emoji';
-import type Entry from '@/types/Entry';
 import { userInjectionKey } from '@/injectionKeys';
 
 const injectedUser = inject(userInjectionKey);

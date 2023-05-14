@@ -9,8 +9,8 @@
     </div>
     <button @click="showForm = !showForm">Create Appliance</button>
     <ApplianceForm
-      v-if="showForm === true" 
-    />
+    v-if="showForm === true" 
+  />
   </div>
 </template>
 <script setup lang="ts">
