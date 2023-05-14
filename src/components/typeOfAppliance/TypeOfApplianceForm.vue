@@ -1,6 +1,7 @@
 <template>
   <form @submit="handleFormSubmit">
-  <input v-model="newType.name" />
+    <input v-model="newType.name" />
+    <button @click="handleFormSubmit">Submit</button>
   </form>
 </template>
 <script setup lang="ts">

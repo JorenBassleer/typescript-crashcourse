@@ -20,7 +20,12 @@ const router = createRouter({
     {
       path: '/appliance',
       name: 'index-appliance',
-      component: () => import('@/components/appliance/AppliancePage.vue')
+      component: () => import('@/components/appliance/AppliancesPage.vue')
+    },
+    {
+      path: '/appliance/:id',
+      name: 'single-appliance',
+      component: () => import('@/components/appliance/SingleAppliancePage.vue')
     }
   ]
 })
