@@ -1,7 +1,7 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import { ref, computed } from 'vue';
+import { defineStore } from 'pinia';
 import { getAppliances, deleteAppliance as deleteApplianceAPI, createAppliance as createApplianceAPI } from '@/api/appliance';
-import type { ApplianceRecord, BaseAppliance } from "../types/Appliance";
+import type { ApplianceRecord, BaseAppliance } from '../types/Appliance';
 import type { AxiosResponse } from 'axios';
 
 
@@ -31,11 +31,11 @@ export const useApplianceStore = defineStore('appliance', () => {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
   return { 
     setAppliances,
     deleteAppliance,
     createAppliance,
-    appliances
-  }
-})
+    appliances,
+  };
+});

@@ -6,15 +6,13 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-essential',
     'plugin:vue/vue3-recommended',
-    'plugin:import/recommended',
-    'eslint:recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting',
     'airbnb-typescript/base',
   ],
   plugins: [
     // Other plugins...
-    "import"
+    'import',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -28,5 +26,5 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     extraFileExtensions: ['.vue'],
   },
-  ignorePatterns: ['vite.config.ts', 'eslintrc.cjs'],
+  ignorePatterns: ['vite.config.ts', 'eslintrc.cjs', 'global.d.ts'],
 };

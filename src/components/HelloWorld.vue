@@ -46,7 +46,7 @@ onMounted(() => input.value?.focus());
         @submit.prevent="handleFormSubmit">
       <input 
         ref="input"
-        type="text"
+      type="text"
         :value="body"
         @keyup="handleTextInput"
       >

@@ -1,7 +1,7 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import { ref, computed } from 'vue';
+import { defineStore } from 'pinia';
 import { getTypes, createType } from '@/api/typeOfAppliance';
-import type { TypeOfApplianceRecord, BaseTypeOfAppliance } from "@/types/TypeOfAppliance";
+import type { TypeOfApplianceRecord, BaseTypeOfAppliance } from '@/types/TypeOfAppliance';
 
 
 export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
@@ -13,7 +13,7 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
   const createTypeOfAppliance = async (type: BaseTypeOfAppliance) : Promise<void> => {
     try {
       await createType(type);
@@ -21,5 +21,5 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
       console.error(error);
     }
   };
-  return { setTypeOfAppliance, createTypeOfAppliance, typesOfAppliance }
-})
+  return { setTypeOfAppliance, createTypeOfAppliance, typesOfAppliance };
+});

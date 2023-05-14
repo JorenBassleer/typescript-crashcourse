@@ -1,6 +1,6 @@
-import type BaseRecord from "./Record";
+import type BaseRecord from './Record';
 
 export interface BaseBrand {
   name: string;
 }
-export interface BrandRecord extends BaseBrand, BaseRecord {};
+export interface BrandRecord extends BaseBrand, BaseRecord {}

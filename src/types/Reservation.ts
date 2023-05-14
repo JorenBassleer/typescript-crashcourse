@@ -1,4 +1,4 @@
-import type BaseRecord from "./Record";
+import type BaseRecord from './Record';
 
 export interface BaseReservation {
   name: string;
@@ -10,6 +10,6 @@ export interface BaseReservation {
   amounts: number[];
   createdAt: Date;
   updatedAt: Date;
-};
+}
 
-export interface ReservationRecord extends BaseRecord, BaseReservation { };
+export interface ReservationRecord extends BaseRecord, BaseReservation { }

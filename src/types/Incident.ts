@@ -1,8 +1,8 @@
-import type BaseRecord from "./Record";
+import type BaseRecord from './Record';
 
 export interface Incident {
   user: string;
   appliance: string;
   hasSolved: boolean;
 }
-export interface IncidentRecord extends BaseRecord { };
+export interface IncidentRecord extends BaseRecord { }

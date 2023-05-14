@@ -1,7 +1,7 @@
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
+import { ref } from 'vue';
+import { defineStore } from 'pinia';
 import { getBrands, createBrand as createBrandAPI } from '@/api/brand';
-import type { BrandRecord, BaseBrand } from "../types/Brand";
+import type { BrandRecord, BaseBrand } from '../types/Brand';
 
 
 export const useBrandStore = defineStore('brand', () => {
@@ -19,7 +19,7 @@ export const useBrandStore = defineStore('brand', () => {
       await createBrandAPI(brand);
     } catch (error) {
       console.error(error);
-    };
-  }
-  return { setBrands, createBrand, brands }
-})
+    }
+  };
+  return { setBrands, createBrand, brands };
+});
