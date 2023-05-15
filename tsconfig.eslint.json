@@ -1,6 +1,0 @@
-{
-  "extends": "./tsconfig.json", // Optionally extend an existing TSConfig
-  "include": [
-    ".eslintrc.cjs"
-  ]
-}
