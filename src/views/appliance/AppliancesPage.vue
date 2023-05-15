@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: white;">
+  <div class="rounded">
     <div
       v-for="appliance in appliances"
       :key="appliance._id"
@@ -7,10 +7,12 @@
     >
     <router-link :to="{ name: 'single-appliance', params: { id: appliance._id }}"></router-link>{{ appliance.name || 'Unknown' }}
     </div>
-    <button @click="showForm = !showForm">Create Appliance</button>
+    <button
+    class="rounded p-8"
+    @click="showForm = !showForm">Create Appliance</button>
     <ApplianceForm
-    v-if="showForm === true" 
-  />
+      v-if="showForm === true" 
+    />
   </div>
 </template>
 <script setup lang="ts">
