@@ -17,7 +17,7 @@
 import { onMounted, ref } from 'vue';
 import { useApplianceStore } from '@/stores/appliance';
 import ApplianceForm from '@components/appliance/ApplianceForm.vue';
-import RouterLink from 'vue-router';
+import { RouterLink } from 'vue-router';
 import { storeToRefs } from 'pinia'
 
 const applianceStore = useApplianceStore();
