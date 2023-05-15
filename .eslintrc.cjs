@@ -12,5 +12,15 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {},
+      alias: {
+        map: [
+          ['@', './src'],
+        ],
+      },
+    }
   }
 }
