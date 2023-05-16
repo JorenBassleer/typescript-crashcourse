@@ -20,7 +20,8 @@
     "vite": "^4.1.4",
     "vitest": "^0.29.1",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "zod-error": "^1.5.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
