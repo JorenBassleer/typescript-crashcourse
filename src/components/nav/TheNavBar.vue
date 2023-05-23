@@ -27,5 +27,6 @@
   </nav>  
 </template>
 <script setup lang="ts">
+import NavItem from './NavItem.vue';
 
 </script>
