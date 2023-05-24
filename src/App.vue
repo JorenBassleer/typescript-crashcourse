@@ -16,7 +16,7 @@ onMounted(async() => {
     <the-nav-bar />
   </header>
 
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
 <style scoped>
 
