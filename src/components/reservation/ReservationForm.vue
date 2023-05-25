@@ -1,9 +1,7 @@
-<template>
-
-</template>
+<template></template>
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { BaseReservation } from '@/types/Reservation';
+import { ref } from 'vue'
+import type { BaseReservation } from '@/types/Reservation'
 
 const newReservation = ref<BaseReservation>({
   name: '',
@@ -12,6 +10,6 @@ const newReservation = ref<BaseReservation>({
   amounts: [],
   start: null,
   end: null,
-  user: '', // Get user from state
-});
+  user: '' // Get user from state
+})
 </script>

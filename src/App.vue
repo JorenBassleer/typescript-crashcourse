@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import TheNavBar from './components/nav/TheNavBar.vue';
+import TheNavBar from './components/nav/TheNavBar.vue'
 import { RouterView } from 'vue-router'
-import { onMounted } from 'vue';
-import { useApplianceStore } from './stores/appliance';
+import { onMounted } from 'vue'
+import { useApplianceStore } from './stores/appliance'
 
-const applianceStore = useApplianceStore();
+const applianceStore = useApplianceStore()
 
-onMounted(async() => {
-  await applianceStore.setAppliances();
-});
+onMounted(async () => {
+  await applianceStore.setAppliances()
+})
 </script>
 
 <template>
@@ -18,6 +18,4 @@ onMounted(async() => {
 
   <RouterView />
 </template>
-<style scoped>
-
-</style>
+<style scoped></style>

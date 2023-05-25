@@ -8,16 +8,16 @@
   </section>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 interface Props {
   routerTo: {
-    type: string | Object,
-    required: true,
-  },
+    type: string | Object
+    required: true
+  }
   routerText: {
-    type: string,
-    required: true,
-  },
+    type: string
+    required: true
+  }
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
