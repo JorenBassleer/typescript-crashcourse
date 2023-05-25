@@ -9,20 +9,14 @@
           class="font-medium flex flex-col p-6 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 items-center"
         >
           <NavItem :router-text="'About'" :router-to="{ name: 'about' }" />
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-white rounded">About</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-white rounded">Links</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-white rounded">Idk nog een pagina?</a>
-          </li>
-          <li
+          <NavItem :router-text="'Links'" :router-to="{ name: 'links' }" />
+          <NavItem :router-text="'Idk nog iets'" :router-to="{ name: 'about' }" />
+          <router-link 
+            :to="{ name: 'login'}"
             class="rounded-full bg-white border-2 border-white text-gray-700 font-semibold px-4 py-2"
           >
             <a href="#" class="">Enter app</a>
-          </li>
+          </router-link>
         </ul>
       </div>
     </section>

@@ -18,6 +18,16 @@ const router = createRouter({
       component: () => import('../views/website/AboutView.vue')
     },
     {
+      path: '/links',
+      name: 'links',
+      component: () => import('../views/website/LinksView.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/app/auth/LoginPage.vue')
+    },
+    {
       path: '/appliance',
       name: 'index-appliance',
       component: () => import('../views/app/appliance/AppliancesPage.vue')
