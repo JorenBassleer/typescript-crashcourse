@@ -1,26 +1,23 @@
-import { ref } from 'vue';
-import { defineStore } from 'pinia';
-import {
-  login as loginAPI
-} from '@/api/auth';
-import type { UserAuth, UserRecord } from '@/types/User';
-import type { AxiosResponse } from 'axios';
-
+import { ref } from 'vue'
+import { defineStore } from 'pinia'
+import { login as loginAPI } from '@/api/auth'
+import type { UserAuth, UserRecord } from '@/types/User'
+import type { AxiosResponse } from 'axios'
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<UserRecord>();
+  const user = ref<UserRecord>()
 
   const login = async (userLogin: UserAuth): Promise<UserRecord | AxiosResponse> => {
     try {
-      user.value = await loginAPI(userLogin);
-      return user.value;
+      user.value = await loginAPI(userLogin)
+      return user.value
     } catch (error) {
-      console.error(error);
-      return <AxiosResponse>error;
+      console.error(error)
+      return <AxiosResponse>error
     }
   }
   return {
     user,
-    login,
+    login
   }
-});
+})

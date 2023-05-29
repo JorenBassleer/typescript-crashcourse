@@ -1,30 +1,27 @@
 <template>
   Login page
   <section>
-    <form @submit="handleLogin">
-      Select user type
-    </form>
-
+    <form @submit="handleLogin">Select user type</form>
   </section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useAuthStore } from '@/stores/auth';
-import { storeToRefs } from 'pinia';
-import type { UserAuth } from '@/types/User';
+import { ref } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { storeToRefs } from 'pinia'
+import type { UserAuth } from '@/types/User'
 
 const user = ref<UserAuth>({
   email: '',
-  password: '',
-});
+  password: ''
+})
 
-const authStore = useAuthStore();
+const authStore = useAuthStore()
 
 const handleLogin = async (): Promise<void> => {
   try {
-    await authStore.login(user.value);
+    await authStore.login(user.value)
   } catch (error) {
     // handleError
   }
-};
+}
 </script>

@@ -11,8 +11,8 @@
           <NavItem :router-text="'About'" :router-to="{ name: 'about' }" />
           <NavItem :router-text="'Links'" :router-to="{ name: 'links' }" />
           <NavItem :router-text="'Idk nog iets'" :router-to="{ name: 'about' }" />
-          <router-link 
-            :to="{ name: 'login'}"
+          <router-link
+            :to="{ name: 'login' }"
             class="rounded-full bg-white border-2 border-white text-gray-700 font-semibold px-4 py-2"
           >
             <a href="#" class="">Enter app</a>

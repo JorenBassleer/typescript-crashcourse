@@ -1,5 +1,3 @@
 <template>
-  <div>
-    Links page
-  </div>
+  <div>Links page</div>
 </template>
