@@ -1,14 +1,17 @@
 <template>
   Login page
   <section>
-    <div>
+    <form @submit="handleLogin">
       Select user type
-    </div>
+    </form>
 
   </section>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const user = ref();
+const handleLogin = async (): Promise<void> => {
+
+}
 </script>

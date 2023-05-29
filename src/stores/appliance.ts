@@ -13,7 +13,7 @@ export const useApplianceStore = defineStore('appliance', () => {
 
   const setAppliances = async (): Promise<void> => {
     try {
-      appliances.value = await getAppliances()
+      appliances.value = await getAppliances();
     } catch (error) {
       console.error(error)
     }
