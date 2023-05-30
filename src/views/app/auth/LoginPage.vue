@@ -1,7 +1,13 @@
 <template>
   Login page
   <section>
-    <form @submit="handleLogin">Select user type</form>
+    <form @submit="handleLogin">
+      Select user type
+      <select>
+        <option>Admin</option>
+        <option>User</option>
+      </select>
+    </form>
   </section>
 </template>
 <script setup lang="ts">
