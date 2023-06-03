@@ -1,13 +1,15 @@
 <template>
-  <div
+  <button
   :class="{
       'bg-green-500': type === 'success',
       'bg-red-500': type === 'danger',
       'bg-orange-500': type === 'warning',
       'bg-slate-600': type === 'primary',
-    }">
+    }"
+    @click="handleClick"
+    >
     <slot></slot>
-  </div>
+  </button>
 </template>
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue';
@@ -21,5 +23,14 @@ defineProps({
     type: String as () => 'mini' | 'small' | 'base' | 'large',
     default: 'base',
   },
-})
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+});
+const emit = defineEmits(['@click']);
+
+const handleClick = () : void => {
+  emit('@click');
+}
 </script>
