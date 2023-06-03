@@ -2,10 +2,10 @@
   <button
   class="rounded shadow-md "
   :class="{
-      'bg-green-500 hover:bg-green-300': type === 'success',
-      'bg-red-500': type === 'danger',
-      'bg-orange-500': type === 'warning',
-      'bg-slate-600': type === 'primary',
+      'bg-green-800 hover:bg-green-300': type === 'success',
+      'bg-red-800': type === 'danger',
+      'bg-orange-800': type === 'warning',
+      'bg-cool-gray-700': type === 'primary',
     }"
     @click="handleClick"
     >
