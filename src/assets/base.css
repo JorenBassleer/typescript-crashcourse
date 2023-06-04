@@ -67,16 +67,15 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: linear-gradient(
-    -50deg, 
+    -50deg,
     rgb(14, 11, 65) 0%,
-    rgba(10,10,32,1) 25%, 
-    rgba(78,78,173,1) 56%, 
-    rgba(212,212,250,1) 93%, 
-    rgba(226,226,226,1) 100%
-  );  
+    rgb(22, 22, 73) 15%,
+    rgba(78, 78, 173, 1) 45%,
+    rgba(212, 212, 250, 1) 93%,
+    rgba(226, 226, 226, 1) 100%
+  );
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
