@@ -11,12 +11,13 @@
           <NavItem :router-text="'About'" :router-to="{ name: 'about' }" />
           <NavItem :router-text="'Links'" :router-to="{ name: 'links' }" />
           <NavItem :router-text="'Idk nog iets'" :router-to="{ name: 'about' }" />
-          <router-link
+          <BaseButton
             :to="{ name: 'login' }"
             class="rounded-full bg-white border-2 border-white text-gray-700 font-semibold px-4 py-2"
-          >
+            @click="handleEnterApp"
+            >
             Enter app
-          </router-link>
+          </BaseButton>
         </ul>
       </div>
     </section>
@@ -24,4 +25,17 @@
 </template>
 <script setup lang="ts">
 import NavItem from './NavItem.vue'
+import { useAuthStore } from '@/stores/auth';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+
+const authStore = useAuthStore();
+const router = useRouter();
+const { user } = storeToRefs(authStore);
+
+// Maybe change to check inside router
+const handleEnterApp = (): void => {
+  if (!user.value) router.push({ name: 'login'});
+  else router.push({ name: 'dashboard' });
+}
 </script>

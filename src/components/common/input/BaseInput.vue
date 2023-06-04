@@ -1,9 +1,10 @@
 <template>
-  <input 
+  <input
     v-model="internalValue"
+    :value="internalValue"
     :placeholder="placeholder"
     :type="type"
-    class="rounded-xl"
+    class="rounded-xl text-gray-700 p-2"
     @input="handleInput"
   />
 </template>
@@ -27,7 +28,7 @@ const emit = defineEmits(['update:modelValue']);
 
 const internalValue = ref(props.modelValue);
 
-const handleInput = () :void => {
+const handleInput = () : void => {
   emit('update:modelValue', internalValue.value);
 };
 </script>
