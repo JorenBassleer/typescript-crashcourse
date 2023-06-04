@@ -14,6 +14,6 @@ onMounted(async () => {
   <header>
     <the-nav-bar />
   </header>
-  <router-view style="height: 100vh" />
+  <router-view style="height: 100dvh" />
 </template>
 <style scoped></style>
