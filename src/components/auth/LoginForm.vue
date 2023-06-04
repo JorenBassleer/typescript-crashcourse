@@ -2,7 +2,7 @@
   <section class="flex flex-col rounded-xl p-8 shadow-xl text-white border-2 hover:shadow-2xl transition-all duration-300">
     <h2 class="text-xl font-semibold text-white">Login</h2>
     <form
-      class="p-6 w-full flex flex-col gap-2"
+      class="p-6 w-full flex flex-col gap-2 px-10"
       @submit.prevent="handleLogin"
     >
     <div class="flex gap-2">
@@ -32,21 +32,24 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useAuthStore } from '@/stores/auth'
-import { storeToRefs } from 'pinia'
-import type { UserAuth } from '@/types/User'
+import { ref } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+import type { UserAuth } from '@/types/User';
 
 const user = ref<UserAuth>({
   email: '',
   password: ''
-})
+});
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
+const router = useRouter();
 
 const handleLogin = async (): Promise<void> => {
   try {
-    await authStore.login(user.value)
+    // await authStore.login(user.value)
+    router.push({ name: 'dashboard' });
   } catch (error) {
     // handleError
   }
