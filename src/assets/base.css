@@ -66,24 +66,17 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: rgb(113,113,170);
   background: linear-gradient(
     -50deg, 
-    rgba(113,113,170,1) 0%, 
-    rgba(87,87,150,1) 25%,
-    rgba(15,15,121,1) 45%,
-    rgba(29,28,101,1) 75%,
-    rgba(49,41,190,1) 100%
-  );
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    rgb(14, 11, 65) 0%,
+    rgba(10,10,32,1) 25%, 
+    rgba(78,78,173,1) 56%, 
+    rgba(212,212,250,1) 93%, 
+    rgba(226,226,226,1) 100%
+  );  
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#app {
-  height: 100dvh;
-}
+
