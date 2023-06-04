@@ -1,6 +1,6 @@
 <template>
   <section class="w-full h-full flex items-center justify-center">
-    <div class="flex flex-col bg-slate-700 rounded-xl p-4 shadow-2xl">
+    <div class="flex flex-col rounded-xl p-4 shadow-2xl  ">
       <h2 class="text-xl font-semibold text-gray-500">Login</h2>
       <form @submit.prevent="handleLogin">
         Select user type
@@ -54,3 +54,6 @@ const handleLogin = async (): Promise<void> => {
   }
 }
 </script>
+<style scoped>
+
+</style>

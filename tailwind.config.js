@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
+        primary: 'rgb(14, 11, 65)',
+        secondary: 'rgba(226, 226, 226, 1)',
+        accent: 'rgba(212, 212, 250, 1)',
         black: colors.black,
         white: colors.white,
         gray: colors.slate,
@@ -20,7 +23,13 @@ module.exports = {
         pink: colors.fuchsia,
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'rgb(14, 11, 65)',
+        secondary: 'rgba(226, 226, 226, 1)',
+        accent: 'rgba(212, 212, 250, 1)',
+      },
+    },
   },
   plugins: [],
 }
