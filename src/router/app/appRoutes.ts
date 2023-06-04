@@ -18,5 +18,5 @@ export default [
     path: '/appliance/:id',
     name: 'single-appliance',
     component: () => import('../../views/app/appliance/SingleAppliancePage.vue')
-  },
-];
+  }
+]

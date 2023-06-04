@@ -1,8 +1,4 @@
 <template>
-  <div>
-    mooie dashboard page enzo
-  </div>
+  <div>mooie dashboard page enzo</div>
 </template>
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>

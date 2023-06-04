@@ -1,5 +1,3 @@
 <template>
-  <section>
-    App nav sidebar
-  </section>
+  <section>App nav sidebar</section>
 </template>

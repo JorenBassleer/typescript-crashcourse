@@ -9,7 +9,7 @@
   />
 </template>
 <script setup lang="ts">
-import { defineProps, defineEmits, withDefaults, ref} from 'vue';
+import { defineProps, defineEmits, withDefaults, ref } from 'vue'
 
 interface InputProps {
   modelValue: string
@@ -22,13 +22,13 @@ interface InputProps {
 const props = withDefaults(defineProps<InputProps>(), {
   type: 'text',
   size: 'base',
-  disabled: false,
-});
-const emit = defineEmits(['update:modelValue']);
+  disabled: false
+})
+const emit = defineEmits(['update:modelValue'])
 
-const internalValue = ref(props.modelValue);
+const internalValue = ref(props.modelValue)
 
-const handleInput = () : void => {
-  emit('update:modelValue', internalValue.value);
-};
+const handleInput = (): void => {
+  emit('update:modelValue', internalValue.value)
+}
 </script>

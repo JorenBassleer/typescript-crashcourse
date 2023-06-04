@@ -16,5 +16,5 @@ export default [
     path: '/links',
     name: 'links',
     component: () => import('../../views/website/LinksView.vue')
-  },
-];
+  }
+]
