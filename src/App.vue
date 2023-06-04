@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import TheNavBar from './components/nav/TheNavBar.vue'
-import { RouterView } from 'vue-router'
 import { onMounted } from 'vue'
 import { useApplianceStore } from './stores/appliance'
 
@@ -15,7 +14,6 @@ onMounted(async () => {
   <header>
     <the-nav-bar />
   </header>
-
-  <RouterView style="height: 100vh;"  />
+    <router-view style="height: 100vh;"  />
 </template>
 <style scoped></style>

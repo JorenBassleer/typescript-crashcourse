@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 
 const applianceStore = useApplianceStore()
-
+ 
 const { appliances } = storeToRefs(applianceStore)
 const showForm = ref<Boolean>(false)
 onMounted(async () => {
