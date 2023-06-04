@@ -14,11 +14,11 @@
     </div>
       <div class="flex flex-col">
         <label>Email</label>
-        <BaseInput v-model="user.email" type="text" />
+        <BaseInput v-model="userLogin.email" type="text" />
       </div>
       <div class="flex flex-col">
         <label>Password</label>
-        <BaseInput v-model="user.password" type="password" />
+        <BaseInput v-model="userLogin.password" type="password" />
       </div>
       <div class="flex justify-end">
         <BaseButton
@@ -32,26 +32,31 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import type { UserAuth } from '@/types/User';
 
-const user = ref<UserAuth>({
+const userLogin = ref<UserAuth>({
   email: '',
   password: ''
 });
 
 const authStore = useAuthStore();
+const { user } = storeToRefs(authStore);
 const router = useRouter();
 
 const handleLogin = async (): Promise<void> => {
   try {
-    // await authStore.login(user.value)
+    // await authStore.login(userLogin.value)
     router.push({ name: 'dashboard' });
   } catch (error) {
     // handleError
   }
-}
+};
+
+onMounted(() => {
+  if (user.value) router.push({ name: 'dashboard' });
+});
 </script>

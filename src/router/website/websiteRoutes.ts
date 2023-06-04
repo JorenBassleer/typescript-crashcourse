@@ -1,10 +1,8 @@
-import HomeView from '../../views/HomeView.vue';
-
 export default [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: () => import('../../views/HomeView.vue')
   },
   {
     path: '/about',

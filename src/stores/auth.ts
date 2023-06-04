@@ -5,7 +5,7 @@ import type { UserAuth, UserRecord } from '@/types/User'
 import type { AxiosResponse } from 'axios'
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<UserRecord>()
+  const user = ref<UserRecord | undefined>()
 
   const login = async (userLogin: UserAuth): Promise<UserRecord | AxiosResponse> => {
     try {
