@@ -13,19 +13,11 @@
       </div>
       <div class="flex flex-col">
         <label>Email</label>
-        <BaseInput
-          v-model="userLogin.email"
-          type="text"
-          placeholder="user@email.com"
-        />
+        <BaseInput v-model="userLogin.email" type="text" placeholder="user@email.com" />
       </div>
       <div class="flex flex-col">
         <label>Password</label>
-        <BaseInput
-          v-model="userLogin.password"
-          type="password"
-          placeholder="********"
-        />
+        <BaseInput v-model="userLogin.password" type="password" placeholder="********" />
       </div>
       <div class="flex justify-end">
         <BaseButton class="my-2" @click="handleLogin"> Login </BaseButton>

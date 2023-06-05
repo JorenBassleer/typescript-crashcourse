@@ -1,9 +1,4 @@
 <template>
-  <main>
-    Home
-    <BaseButton type="primary"> Button test </BaseButton>
-  </main>
+  <main></main>
 </template>
-<script setup lang="ts">
-import BaseButton from '@/components/common/button/BaseButton.vue'
-</script>
+<script setup lang="ts"></script>

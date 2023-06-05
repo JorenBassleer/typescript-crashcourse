@@ -13,6 +13,16 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
+  rules: {
+    'max-len': 'off',
+    'no-underscore-dangle': 'off',
+    'no-console': 'error',
+    'quote-props': ['error', 'consistent-as-needed'],
+    'linebreak-style': 'off',
+    'prefer-arrow-callback': ['error', { 'allowNamedFunctions': true }],
+    'func-style': ['error', 'expression', { 'allowArrowFunctions': true }],
+    'array-bracket-newline': ['error', { 'multiline': true }],
+  },
   settings: {
     'import/resolver': {
       typescript: {},
