@@ -2,13 +2,13 @@
   <header>
   </header>
     <section
-      :class="{ 'flex': !user }"
+      :class="{ 'flex': user }"
     >
       <the-nav-bar
-        :class="{ 'w-1/6 rounded': !user }"
+        :class="{ 'w-1/6 rounded': user }"
       />
       <router-view 
-        :class="{ 'w-5/6': !user }"
+        :class="{ 'w-5/6': user }"
         style="height: 100dvh"
       />
     </section>

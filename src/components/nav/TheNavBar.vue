@@ -13,7 +13,7 @@ import AppNav from './AppNav.vue'
 const authStore = useAuthStore()
 const { user } = storeToRefs(authStore)
 const currentNavBar = computed(() => {
-  if (user.value) return WebsiteNav
+  if (!user.value) return WebsiteNav
   return AppNav
 })
 </script>
