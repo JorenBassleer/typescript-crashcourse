@@ -1,4 +1,8 @@
 <template>
-  <div>mooie dashboard page enzo</div>
+  <RouterView>
+    <div>
+      idk
+    </div>
+  </RouterView>
 </template>
 <script setup lang="ts"></script>

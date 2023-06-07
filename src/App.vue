@@ -1,8 +1,8 @@
 <template>
   <header></header>
   <section :class="{ flex: !user }">
-    <the-nav-bar :class="{ 'w-1/6 rounded': !user }" />
-    <router-view :class="{ 'w-5/6': !user }" style="height: 100dvh" />
+    <TheNavBar :class="{ 'w-1/6 rounded': !user }" />
+    <RouterView :class="{ 'w-5/6': !user }" style="height: 100dvh" />
   </section>
 </template>
 <script setup lang="ts">

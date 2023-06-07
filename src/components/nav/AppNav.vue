@@ -4,7 +4,7 @@
       <NavItem
         v-for="item in navItems"
         :key="item.name"
-        class="drop-shadow-2xl border-2 p-2 py-4 rounded-lg w-full text-center cursor-pointer hover:drop-shadow-md transition-all duration-300 font-semibold"
+        class="drop-shadow-2xl border-2 border-r-2 p-2 py-4 rounded-lg w-full text-center cursor-pointer hover:drop-shadow-md transition-all duration-300 font-semibold"
         :router-text="item.name"
         :router-to="item.routerTo"
         router-class="text-gray-700"
