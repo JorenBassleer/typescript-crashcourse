@@ -11,7 +11,6 @@
         <NavItem :router-text="'Links'" :router-to="{ name: 'links' }" />
         <NavItem :router-text="'Idk nog iets'" :router-to="{ name: 'about' }" />
         <BaseButton
-          :to="{ name: 'login' }"
           class="rounded-full bg-white border-2 border-white text-gray-700 font-semibold px-4 py-2"
           @click="$router.push({ name: 'login' })"
         >
