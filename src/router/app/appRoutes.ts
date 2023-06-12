@@ -1,6 +1,6 @@
 export default [
   {
-    path: '/app',
+    path: '/dashboard',
     name: 'dashboard',
     component: () => import('../../views/app/DashboardPage.vue'),
     children: [

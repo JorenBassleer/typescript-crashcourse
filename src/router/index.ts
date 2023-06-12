@@ -6,7 +6,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     ...websiteRoutes,
-    ...appRoutes,
+    {
+      path: '/app',
+      redirect: '/app/dashboard',
+      children: [...appRoutes,],
+    },
     {
       path: '/:catchAll(.*)',
       name: 'NotFound',
