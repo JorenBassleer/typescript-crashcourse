@@ -62,7 +62,9 @@
   position: relative;
   font-weight: normal;
 }
-
+#app {
+  min-height: 100vh;
+}
 body {
   min-height: 100vh;
   color: var(--color-text);

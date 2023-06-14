@@ -1,6 +1,6 @@
 <template>
-  <aside class="h-full bg-secondary p-8">
-    <section class="flex flex-col gap-4 text-gray-900">
+  <aside class="backdrop-blur-3xl">
+    <section class="flex h-full flex-col gap-4 bg-secondary p-8 text-gray-900">
       <NavItem
         v-for="item in navItems"
         :key="item.name"
