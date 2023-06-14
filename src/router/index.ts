@@ -8,7 +8,7 @@ const router = createRouter({
     ...websiteRoutes,
     {
       path: '/app',
-      redirect: '/app/dashboard',
+      redirect: '/dashboard',
       children: [...appRoutes]
     },
     {
