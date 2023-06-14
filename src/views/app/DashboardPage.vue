@@ -1,6 +1,4 @@
 <template>
-  <RouterView>
-    <div>idk</div>
-  </RouterView>
+    <div class="w-full flex justify-center h-full items-center">idk</div>
 </template>
 <script setup lang="ts"></script>

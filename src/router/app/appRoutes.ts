@@ -6,7 +6,7 @@ export default [
     children: [
       {
         path: '/appliances',
-        name: 'index-appliance',
+        name: 'index-appliances',
         component: () => import('../../views/app/appliance/AppliancesPage.vue')
       },
       {

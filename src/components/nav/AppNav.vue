@@ -18,8 +18,8 @@ import NavItem from './NavItem.vue'
 // Get nav items from external file
 // ++ create type nav item
 const navItems = [
-  { name: 'Dashboard', routerTo: { path: '/dashboard' } },
-  { name: 'Appliances', routerTo: { path: '/appliances' } },
+  { name: 'Dashboard', routerTo: { name: 'dashboard' } },
+  { name: 'Appliances', routerTo: { name: 'index-appliances' } },
   { name: 'idk nog iets', routerTo: { path: '/idk' } }
 ]
 </script>
