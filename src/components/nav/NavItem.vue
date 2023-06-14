@@ -18,5 +18,5 @@ interface Props {
 }
 withDefaults(defineProps<Props>(), {
   routerClass: 'text-white'
-});
+})
 </script>

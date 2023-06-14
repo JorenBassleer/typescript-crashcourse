@@ -9,12 +9,12 @@ const router = createRouter({
     {
       path: '/app',
       redirect: '/app/dashboard',
-      children: [...appRoutes,],
+      children: [...appRoutes]
     },
     {
       path: '/:catchAll(.*)',
       name: 'NotFound',
-      component: () => import('../views/errors/NotFound.vue'),
+      component: () => import('../views/errors/NotFound.vue')
     }
   ]
 })

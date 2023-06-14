@@ -14,12 +14,11 @@ export default [
         name: 'single-appliance',
         component: () => import('../../views/app/appliance/SingleAppliancePage.vue')
       }
-
     ]
   },
   {
     path: '/login',
     name: 'login',
     component: () => import('../../views/app/auth/LoginPage.vue')
-  },
+  }
 ]
