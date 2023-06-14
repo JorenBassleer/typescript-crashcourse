@@ -1,11 +1,7 @@
 <template>
-  <section>
-    <div>
-      <router-link :to="routerTo" :class="routerClass">
-        {{ routerText }}
-      </router-link>
-    </div>
-  </section>
+  <router-link :to="routerTo" :class="routerClass">
+    {{ routerText }}
+  </router-link>
 </template>
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'

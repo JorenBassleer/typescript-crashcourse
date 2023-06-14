@@ -3,7 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  'extends': [
+  extends: [
     'plugin:vue/vue3-essential',
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
@@ -19,17 +19,15 @@ module.exports = {
     'no-console': 'error',
     'quote-props': ['error', 'consistent-as-needed'],
     'linebreak-style': 'off',
-    'prefer-arrow-callback': ['error', { 'allowNamedFunctions': true }],
-    'func-style': ['error', 'expression', { 'allowArrowFunctions': true }],
-    'array-bracket-newline': ['error', { 'multiline': true }],
+    'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+    'func-style': ['error', 'expression', { allowArrowFunctions: true }],
+    'array-bracket-newline': ['error', { multiline: true }],
   },
   settings: {
     'import/resolver': {
       typescript: {},
       alias: {
-        map: [
-          ['@', './src'],
-        ],
+        map: [['@', './src'],],
       },
     }
   }

@@ -1,11 +1,13 @@
 <template>
   <header></header>
-  <section
-    :class="{ 'flex h-screen': !user }"
+  <main
+    :class="{ 'flex w-full h-screen': !user }"
   >
     <TheNavBar :class="{ 'w-1/6 rounded': !user }" />
-    <RouterView />
-  </section>
+    <section :class="{'w-5/6 p-8': !user}">
+      <RouterView />
+    </section>
+  </main>
 </template>
 <script setup lang="ts">
 import TheNavBar from './components/nav/TheNavBar.vue'
