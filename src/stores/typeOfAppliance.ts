@@ -6,7 +6,7 @@ import type { TypeOfApplianceRecord, BaseTypeOfAppliance } from '@/types/TypeOfA
 export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
   const typesOfAppliance = ref<TypeOfApplianceRecord[]>([])
 
-  const setTypeOfAppliance = async (): Promise<void> => {
+  const setTypesOfAppliance = async (): Promise<void> => {
     try {
       typesOfAppliance.value = await getTypes()
     } catch (error) {
@@ -20,5 +20,5 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
       console.error(error)
     }
   }
-  return { setTypeOfAppliance, createTypeOfAppliance, typesOfAppliance }
+  return { setTypesOfAppliance, createTypeOfAppliance, typesOfAppliance }
 })
