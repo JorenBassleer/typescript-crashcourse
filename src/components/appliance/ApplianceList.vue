@@ -8,13 +8,16 @@
   </section>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { onBeforeMount } from 'vue';
 import ApplianceListItem from './ApplianceListItem.vue';
 import type { ApplianceRecord } from '@/types/Appliance';
+import { useApplianceStore } from '@/stores/appliance';
+import { storeToRefs } from 'pinia';
 
-// Write logic to fetch appliances
-interface Props {
-  appliances: ApplianceRecord[]
-}
-defineProps<Props>();
+const applianceStore = useApplianceStore();
+const { appliances } = storeToRefs(applianceStore);
+
+onBeforeMount(() => {
+  if (appliances.value.length === 0) applianceStore.setAppliances();
+});
 </script>
