@@ -1,10 +1,8 @@
 <template>
   <header></header>
-  <main
-    :class="{ 'flex w-full h-screen': !user }"
-  >
+  <main :class="{ 'flex w-full h-screen': !user }">
     <TheNavBar :class="{ 'w-1/6 rounded': !user }" />
-    <section :class="{'w-5/6 p-8': !user}">
+    <section :class="{ 'w-5/6 p-8': !user }">
       <RouterView />
     </section>
   </main>
