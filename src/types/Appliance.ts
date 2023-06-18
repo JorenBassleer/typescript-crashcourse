@@ -5,5 +5,6 @@ export interface BaseAppliance {
   details: string
   type: ''
   brand: ''
+  image?: '',
 }
 export interface ApplianceRecord extends BaseAppliance, BaseRecord {}
