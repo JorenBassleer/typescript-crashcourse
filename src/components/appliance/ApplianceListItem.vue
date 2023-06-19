@@ -1,8 +1,9 @@
 <template>
   <article
     class="flex flex-col w-full h-full p-8 border-2 border-primary hover:border-secondary bg-accent rounded-xl transition-all duration-200 text-gray-700"
-    @click="$router.push({ name: 'single-appliance' , params: { id: appliance._id } })">
+    @click="$router.push({ name: 'single-appliance', params: { id: appliance._id } })"
   >
+    >
     <h2 class="w-full text-center text-2xl">
       {{ appliance?.name }}
     </h2>
@@ -29,9 +30,8 @@ interface Props {
   appliance: ApplianceRecord
   brands: BrandRecord[]
   typesOfAppliance: TypeOfApplianceRecord[]
-};
-const props = defineProps<Props>();
-
+}
+const props = defineProps<Props>()
 
 const foundBrand = computed(() => props.brands.find((brand) => brand._id === props.appliance.brand))
 const foundTypeOfAppliance = computed(() =>
