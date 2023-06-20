@@ -1,10 +1,12 @@
 <template>
   <section v-if="currentAppliance?._id" class="w-full h-full flex justify-center rounded-xl">
-    <div class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8">
+    <div
+      class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8"
+    >
       <div class="w-full flex justify-between">
-          <h1>Current Appliance: {{ currentAppliance.name }}</h1>
+        <h1>Current Appliance: {{ currentAppliance.name }}</h1>
         <div class="flex justify-end">
-        <BaseButton>Add to reservation</BaseButton>
+          <BaseButton>Add to reservation</BaseButton>
         </div>
       </div>
     </div>
