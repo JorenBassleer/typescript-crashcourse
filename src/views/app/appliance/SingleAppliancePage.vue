@@ -3,15 +3,15 @@
     <div
       class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8"
     >
-      <div class="w-full flex justify-between">
-        <h1>Current Appliance: {{ currentAppliance.name }}</h1>
+      <div class="w-full flex justify-between items-center">
+        <h1 class="w-full text-center text-2xl">Current Appliance: {{ currentAppliance.name }}</h1>
         <div class="flex justify-end">
-          <BaseButton>Add to reservation</BaseButton>
+          <BaseButton>Add</BaseButton>
         </div>
       </div>
     </div>
   </section>
-  <section v-else>We could not find the appliance you're looking for</section>
+  <section v-else>Sorry, we could not find the appliance you're looking for</section>
 </template>
 <script setup lang="ts">
 import { onBeforeMount, computed } from 'vue'
