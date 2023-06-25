@@ -1,5 +1,5 @@
 import type BaseRecord from './Record'
-import type { BrandRecord } from '@/types/Brand'
+import type { Brand } from '@/types/Brand'
 import type { TypeOfApplianceRecord } from '@/types/TypeOfAppliance'
 import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance'
 import { useBrandStore } from '@/stores/brand'
@@ -52,4 +52,13 @@ export class Appliance implements ApplianceRecord {
   //   const foundType = typeStore.$state.typesOfAppliance.find((typeOfAppliance) => typeOfAppliance._id === this.type);
   //   return foundType ? foundType : null;
   // }
+}
+export class ApplianceSearchManager {
+  private brandStore = useBrandStore();
+  private typeOfApplianceStore = useTypeOfApplianceStore();
+
+  searchBrand(brandId: string) : Brand | null {
+    const foundBrand = this.brandStore.$state.brands.find((brand) => brand._id === brandId);
+    return foundBrand ? foundBrand : null;
+  }
 }
