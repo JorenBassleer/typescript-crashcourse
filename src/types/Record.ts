@@ -1,5 +1,5 @@
 export default interface BaseRecord {
-  _id: string
-  createdAt: Date
-  updatedAt: Date
+  readonly _id: string
+  readonly createdAt: Date
+  readonly updatedAt: Date
 }

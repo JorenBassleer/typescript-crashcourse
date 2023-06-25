@@ -5,8 +5,8 @@ import {
   deleteAppliance as deleteApplianceAPI,
   createAppliance as createApplianceAPI
 } from '@/api/appliance'
-import type { ApplianceRecord, BaseAppliance } from '../types/Appliance'
-import type Appliance from '@/models/Appliance';
+import type { BaseAppliance } from '../types/Appliance'
+import type { Appliance } from '@/types/Appliance';
 import type { AxiosResponse } from 'axios'
 
 export const useApplianceStore = defineStore('appliance', () => {

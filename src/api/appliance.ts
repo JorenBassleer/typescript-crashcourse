@@ -1,5 +1,5 @@
 import type { BaseAppliance } from '@/types/Appliance'
-import type Appliance from '@/models/Appliance'
+import type { Appliance } from '@/types/Appliance'
 import axios, { type AxiosResponse } from 'axios'
 
 export const getAppliances = async (): Promise<Appliance[]> => {

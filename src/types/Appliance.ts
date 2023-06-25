@@ -14,14 +14,14 @@ export interface BaseAppliance {
 export interface ApplianceRecord extends BaseAppliance, BaseRecord {}
 
 export class Appliance implements ApplianceRecord {
-  _id: string;
+  readonly _id: string;
   name: string;
   details: string;
   brand: string;
   type: string;
-  createdAt: Date;
-  updatedAt: Date;
   image?: string;
+  readonly createdAt: Date;
+  readonly updatedAt: Date;
 
   constructor(
       _id: string,
@@ -42,15 +42,15 @@ export class Appliance implements ApplianceRecord {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
-  getBrand(): BrandRecord | null {
-    const brandStore = useBrandStore();
-    const foundBrand = brandStore.$state.brands.find((brand) => brand._id === this.brand);
-    return foundBrand ? foundBrand : null;
-  }
-  getType(): TypeOfApplianceRecord | null {
-    const typeStore = useTypeOfApplianceStore();
-    const foundType = typeStore.$state.typesOfAppliance.find((typeOfAppliance) => typeOfAppliance._id === this.type);
-    return foundType ? foundType : null;
-  }
+  // getBrand(): BrandRecord | null {
+  //   const brandStore = useBrandStore();
+  //   const foundBrand = brandStore.$state.brands.find((brand) => brand._id === this.brand);
+  //   return foundBrand ? foundBrand : null;
+  // }
+  // getType(): TypeOfApplianceRecord | null {
+  //   const typeStore = useTypeOfApplianceStore();
+  //   const foundType = typeStore.$state.typesOfAppliance.find((typeOfAppliance) => typeOfAppliance._id === this.type);
+  //   return foundType ? foundType : null;
+  // }
 
 }
