@@ -7,9 +7,7 @@ export const getAppliances = async (): Promise<Appliance[]> => {
   return data
 }
 export const getAppliance = async (id: string): Promise<Appliance> => {
-  const { data } = await axios.get<Appliance>(
-    `${import.meta.env.VITE_API_URL}/appliance/${id}`
-  )
+  const { data } = await axios.get<Appliance>(`${import.meta.env.VITE_API_URL}/appliance/${id}`)
   return data
 }
 export const createAppliance = async (appliance: BaseAppliance): Promise<Appliance> => {
@@ -20,10 +18,7 @@ export const createAppliance = async (appliance: BaseAppliance): Promise<Applian
   return data
 }
 // Idk mss hier toch record
-export const updateAppliance = async (
-  appliance: BaseAppliance,
-  id: string
-): Promise<Appliance> => {
+export const updateAppliance = async (appliance: BaseAppliance, id: string): Promise<Appliance> => {
   const { data } = await axios.put<Appliance>(
     `${import.meta.env.VITE_API_URL}/appliance/${id}`,
     appliance
