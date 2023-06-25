@@ -1,18 +1,19 @@
-import type { ApplianceRecord, BaseAppliance } from '@/types/Appliance'
+import type { BaseAppliance } from '@/types/Appliance'
+import type Appliance from '@/models/Appliance'
 import axios, { type AxiosResponse } from 'axios'
 
-export const getAppliances = async (): Promise<ApplianceRecord[]> => {
-  const { data } = await axios.get<ApplianceRecord[]>(`${import.meta.env.VITE_API_URL}/appliance`)
+export const getAppliances = async (): Promise<Appliance[]> => {
+  const { data } = await axios.get<Appliance[]>(`${import.meta.env.VITE_API_URL}/appliance`)
   return data
 }
-export const getAppliance = async (id: string): Promise<ApplianceRecord> => {
-  const { data } = await axios.get<ApplianceRecord>(
+export const getAppliance = async (id: string): Promise<Appliance> => {
+  const { data } = await axios.get<Appliance>(
     `${import.meta.env.VITE_API_URL}/appliance/${id}`
   )
   return data
 }
-export const createAppliance = async (appliance: BaseAppliance): Promise<ApplianceRecord> => {
-  const { data } = await axios.post<ApplianceRecord>(
+export const createAppliance = async (appliance: BaseAppliance): Promise<Appliance> => {
+  const { data } = await axios.post<Appliance>(
     `${import.meta.env.VITE_API_URL}/appliance`,
     appliance
   )
@@ -22,8 +23,8 @@ export const createAppliance = async (appliance: BaseAppliance): Promise<Applian
 export const updateAppliance = async (
   appliance: BaseAppliance,
   id: string
-): Promise<BaseAppliance> => {
-  const { data } = await axios.put<BaseAppliance>(
+): Promise<Appliance> => {
+  const { data } = await axios.put<Appliance>(
     `${import.meta.env.VITE_API_URL}/appliance/${id}`,
     appliance
   )
