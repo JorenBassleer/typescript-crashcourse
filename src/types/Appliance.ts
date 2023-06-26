@@ -1,8 +1,5 @@
 import type BaseRecord from './Record'
-import type { Brand } from '@/types/Brand'
-import type { TypeOfAppliance } from '@/types/TypeOfAppliance'
-import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance'
-import { useBrandStore } from '@/stores/brand'
+import { useApplianceStore } from '@/stores/appliance'
 
 export interface BaseAppliance {
   name: string
@@ -43,12 +40,11 @@ export class Appliance implements ApplianceRecord {
     this.updatedAt = updatedAt
   }
 }
+// Maybe make a BaseSearchManager
 export class ApplianceSearchManager {
-  private brandStore = useBrandStore();
-  private typeOfApplianceStore = useTypeOfApplianceStore();
-
-  searchBrand(brandId: string) : Brand | null {
-    const foundBrand = this.brandStore.$state.brands.find((brand) => brand._id === brandId);
-    return foundBrand ? foundBrand : null;
+  private applianceStore = useApplianceStore();
+  searchAppliance(applianceId: string) : Appliance | null {
+    const foundAppliance = this.applianceStore.$state.appliances.find((appliance) => appliance._id === applianceId);
+    return foundAppliance ? foundAppliance : null;
   }
 }
