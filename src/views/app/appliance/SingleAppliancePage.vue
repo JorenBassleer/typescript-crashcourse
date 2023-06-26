@@ -9,28 +9,58 @@
           <BaseButton>Add</BaseButton>
         </div>
       </div>
+      <section>
+        <div class="flex justify-between">
+          <div
+            v-if="currentBrand !== null"
+            class="w-1/2"
+          >
+            {{ currentBrand.name }}
+          </div>
+          <div
+            v-if="currentTypeOfAppliance !== null"
+            class="w-1/2"
+          >
+             {{ currentTypeOfAppliance.name }}
+          </div>
+        </div>
+      </section>
     </div>
   </section>
   <section v-else>Sorry, we could not find the appliance you're looking for</section>
 </template>
 <script setup lang="ts">
 import { onBeforeMount, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { type RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
 import { useApplianceStore } from '@/stores/appliance'
+import { type Brand, BrandSearchManager } from '@/types/Brand'
 import { storeToRefs } from 'pinia'
-import type { ApplianceRecord } from '@/types/Appliance'
+import { ApplianceSearchManager, type Appliance } from '@/types/Appliance'
+import { type TypeOfAppliance, TypeOfApplianceSearchManager } from '@/types/TypeOfAppliance'
 
 const applianceStore = useApplianceStore()
+const applianceSearcher = new ApplianceSearchManager();
+const brandSearcher = new BrandSearchManager();
+const typeOfApplianceSearcher = new TypeOfApplianceSearchManager();
 
-const { appliances } = storeToRefs(applianceStore)
+const { appliances } = storeToRefs(applianceStore);
 
-const route = useRoute()
+const route: RouteLocationNormalizedLoaded = useRoute()
+const currentAppliance = computed<Appliance | null>(() => {
+  const applianceId = Array.isArray(route.params.id)
+    ? route.params.id[0]
+    : route.params.id; 
 
-const currentAppliance = computed<ApplianceRecord | null>(() => {
-  const foundAppliance = appliances.value.find((appliance) => appliance._id === route.params.id)
-  if (!foundAppliance) return null
-  return foundAppliance
-})
+  return applianceSearcher.searchAppliance(applianceId);
+});
+
+const currentBrand = computed<Brand | null>(() => {
+  return currentAppliance.value ? brandSearcher.searchBrand(currentAppliance.value?._id) : null;
+});
+
+const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
+  return currentAppliance.value ? typeOfApplianceSearcher.searchTypeOfAppliance(currentAppliance.value._id) : null;
+});
 
 onBeforeMount(() => {
   if (appliances.value.length === 0) applianceStore.setAppliances()

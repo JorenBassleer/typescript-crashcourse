@@ -1,4 +1,5 @@
 import type BaseRecord from './Record'
+import { useBrandStore } from '@/stores/brand'
 
 export interface BaseBrand {
   name: string
@@ -21,5 +22,12 @@ export class Brand implements BrandRecord {
     this.name = name;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+  }
+}
+export class BrandSearchManager {
+  private brandStore = useBrandStore();
+  searchBrand(brandId: string) : Brand | null {
+    const foundBrand = this.brandStore.$state.brands.find((brand) => brand._id === brandId);
+    return foundBrand ? foundBrand : null;
   }
 }
