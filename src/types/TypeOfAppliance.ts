@@ -1,4 +1,5 @@
 import type BaseRecord from './Record'
+import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance'
 
 export interface BaseTypeOfAppliance {
   name: string
@@ -21,5 +22,13 @@ export class TypeOfAppliance implements TypeOfApplianceRecord {
     this.name = name;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+  }
+}
+export class TypeOfApplianceSearchManager {
+  private typeOfApplianceStore = useTypeOfApplianceStore();
+  
+  searchTypeOfAppliance(typeId: string) : TypeOfAppliance | null {
+    const foundType = this.typeOfApplianceStore.$state.typesOfAppliance.find((entry) => entry._id === typeId);
+    return foundType ? foundType : null;
   }
 }

@@ -42,16 +42,6 @@ export class Appliance implements ApplianceRecord {
     this.createdAt = createdAt
     this.updatedAt = updatedAt
   }
-  // getBrand(): BrandRecord | null {
-  //   const brandStore = useBrandStore();
-  //   const foundBrand = brandStore.$state.brands.find((brand) => brand._id === this.brand);
-  //   return foundBrand ? foundBrand : null;
-  // }
-  // getType(): TypeOfApplianceRecord | null {
-  //   const typeStore = useTypeOfApplianceStore();
-  //   const foundType = typeStore.$state.typesOfAppliance.find((typeOfAppliance) => typeOfAppliance._id === this.type);
-  //   return foundType ? foundType : null;
-  // }
 }
 export class ApplianceSearchManager {
   private brandStore = useBrandStore();
@@ -60,9 +50,5 @@ export class ApplianceSearchManager {
   searchBrand(brandId: string) : Brand | null {
     const foundBrand = this.brandStore.$state.brands.find((brand) => brand._id === brandId);
     return foundBrand ? foundBrand : null;
-  }
-  searchTypeOfAppliance(typeId: string) : TypeOfAppliance | null {
-    const foundType = this.typeOfApplianceStore.$state.typesOfAppliance.find((entry) => entry._id === typeId);
-    return foundType ? foundType : null;
   }
 }
