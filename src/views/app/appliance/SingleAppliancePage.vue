@@ -25,6 +25,12 @@
           </div>
         </div>
       </section>
+      <section class="shadow-xl p-6 rounded-xl my-6 w-full h-96">
+        <img :src="currentAppliance.image" />
+      </section>
+      <section class="flex justify-end">
+        Amount in stock ...
+      </section>
     </div>
   </section>
   <section v-else>Sorry, we could not find the appliance you're looking for</section>
