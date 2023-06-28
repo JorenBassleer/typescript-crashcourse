@@ -31,6 +31,9 @@
       <section class="flex justify-end">
         Amount in stock ...
       </section>
+      <section class="text-gray-700 font-thin">
+        {{ currentAppliance.details }}
+      </section>
     </div>
   </section>
   <section v-else>Sorry, we could not find the appliance you're looking for</section>

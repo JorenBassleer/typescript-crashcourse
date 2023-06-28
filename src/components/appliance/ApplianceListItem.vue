@@ -21,14 +21,14 @@
 </template>
 <script setup lang="ts">
 import { defineProps, computed } from 'vue'
-import type { ApplianceRecord } from '@/types/Appliance'
-import type { BrandRecord } from '@/types/Brand'
-import type { TypeOfApplianceRecord } from '@/types/TypeOfAppliance'
+import type { Appliance } from '@/types/Appliance'
+import type { Brand } from '@/types/Brand'
+import type { TypeOfAppliance } from '@/types/TypeOfAppliance'
 
 interface Props {
-  appliance: ApplianceRecord
-  brands: BrandRecord[]
-  typesOfAppliance: TypeOfApplianceRecord[]
+  appliance: Appliance
+  brands: Brand[]
+  typesOfAppliance: TypeOfAppliance[]
 }
 const props = defineProps<Props>()
 
