@@ -1,10 +1,10 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { getBrands, createBrand as createBrandAPI } from '@/api/brand'
-import type { BrandRecord, BaseBrand } from '../types/Brand'
+import type { Brand, BaseBrand } from '../types/Brand'
 
 export const useBrandStore = defineStore('brand', () => {
-  const brands = ref<BrandRecord[]>([])
+  const brands = ref<Brand[]>([])
 
   const setBrands = async (): Promise<void> => {
     try {
@@ -20,5 +20,14 @@ export const useBrandStore = defineStore('brand', () => {
       console.error(error)
     }
   }
-  return { setBrands, createBrand, brands }
+  const searchBrandOnId = (brandId: String): Brand | null => {
+    const foundBrand = brands.value.find((brand) => brand._id === brandId);
+    return foundBrand ? foundBrand : null;
+  }
+  return { 
+      setBrands,
+      createBrand,
+      brands,
+      searchBrandOnId,
+    }
 })

@@ -41,15 +41,16 @@
 <script setup lang="ts">
 import { onBeforeMount, computed } from 'vue'
 import { type RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
-import { useApplianceStore } from '@/stores/appliance'
-import { type Brand, BrandSearchManager } from '@/types/Brand'
+import { useApplianceStore } from '@/stores/appliance';
+import { useBrandStore } from '@/stores/brand';
+import type { Brand } from '@/types/Brand';
 import { storeToRefs } from 'pinia'
 import { ApplianceSearchManager, type Appliance } from '@/types/Appliance'
 import { type TypeOfAppliance, TypeOfApplianceSearchManager } from '@/types/TypeOfAppliance'
 
-const applianceStore = useApplianceStore()
+const applianceStore = useApplianceStore();
+const brandStore = useBrandStore();
 const applianceSearcher = new ApplianceSearchManager();
-const brandSearcher = new BrandSearchManager();
 const typeOfApplianceSearcher = new TypeOfApplianceSearchManager();
 
 const { appliances } = storeToRefs(applianceStore);
@@ -64,11 +65,11 @@ const currentAppliance = computed<Appliance | null>(() => {
 });
 
 const currentBrand = computed<Brand | null>(() => {
-  return currentAppliance.value ? brandSearcher.searchBrand(currentAppliance.value?._id) : null;
+  return currentAppliance.value ? brandStore.searchBrandOnId(currentAppliance.value?.brand) : null;
 });
 
 const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
-  return currentAppliance.value ? typeOfApplianceSearcher.searchTypeOfAppliance(currentAppliance.value._id) : null;
+  return currentAppliance.value ? typeOfApplianceSearcher.searchTypeOfAppliance(currentAppliance.value.type) : null;
 });
 
 onBeforeMount(() => {

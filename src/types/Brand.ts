@@ -24,11 +24,3 @@ export class Brand implements BrandRecord {
     this.updatedAt = updatedAt;
   }
 }
-export class BrandSearchManager {
-  private brandStore = useBrandStore();
- // Change to search on Id
-  searchBrand(brandId: string) : Brand | null {
-    const foundBrand = this.brandStore.$state.brands.find((brand) => brand._id === brandId);
-    return foundBrand ? foundBrand : null;
-  }
-}

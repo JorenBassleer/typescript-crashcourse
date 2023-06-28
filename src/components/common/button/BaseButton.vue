@@ -21,8 +21,8 @@
 import { defineProps, defineEmits, ref } from 'vue'
 
 interface ButtonProps {
-  type: 'primary' | 'success' | 'danger' | 'warning'
-  size: 'mini' | 'small' | 'base' | 'large'
+  type?: 'primary' | 'success' | 'danger' | 'warning'
+  size?: 'mini' | 'small' | 'base' | 'large'
   disabled?: boolean
   actionType?: 'button' | 'submit' | 'reset'
 }
