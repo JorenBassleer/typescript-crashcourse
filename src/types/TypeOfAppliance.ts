@@ -12,15 +12,10 @@ export class TypeOfAppliance implements TypeOfApplianceRecord {
   readonly createdAt: Date
   readonly updatedAt: Date
 
-  constructor(
-    _id: string,
-    name: string,
-    createdAt: Date,
-    updatedAt: Date
-  ) {
-    this._id = _id;
-    this.name = name;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
+  constructor(_id: string, name: string, createdAt: Date, updatedAt: Date) {
+    this._id = _id
+    this.name = name
+    this.createdAt = createdAt
+    this.updatedAt = updatedAt
   }
 }

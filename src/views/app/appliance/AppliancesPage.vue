@@ -6,5 +6,4 @@
 </template>
 <script setup lang="ts">
 import ApplianceList from '@components/appliance/ApplianceList.vue'
-
 </script>

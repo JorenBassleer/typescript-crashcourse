@@ -28,7 +28,7 @@ export const useApplianceStore = defineStore('appliance', () => {
       return <AxiosResponse>error
     }
   }
-  
+
   // Idk if i return this or an actual value
   const createAppliance = async (appliance: BaseAppliance): Promise<void> => {
     try {
@@ -39,8 +39,8 @@ export const useApplianceStore = defineStore('appliance', () => {
   }
 
   const searchApplianceOnId = (applianceId: string): Appliance | null => {
-    const foundBrand = appliances.value.find((appliance) => appliance._id === applianceId);
-    return foundBrand ? foundBrand : null;
+    const foundBrand = appliances.value.find((appliance) => appliance._id === applianceId)
+    return foundBrand ? foundBrand : null
   }
 
   return {

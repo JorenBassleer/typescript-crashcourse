@@ -21,13 +21,13 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
     }
   }
   const searchTypeOfApplianceById = (typeId: string): TypeOfAppliance | null => {
-    const foundType = typesOfAppliance.value.find((entry) => entry._id === typeId);
-    return foundType ? foundType : null;
+    const foundType = typesOfAppliance.value.find((entry) => entry._id === typeId)
+    return foundType ? foundType : null
   }
-  return { 
-      setTypesOfAppliance,
-      createTypeOfAppliance,
-      searchTypeOfApplianceById,
-      typesOfAppliance
-    }
+  return {
+    setTypesOfAppliance,
+    createTypeOfAppliance,
+    searchTypeOfApplianceById,
+    typesOfAppliance
+  }
 })

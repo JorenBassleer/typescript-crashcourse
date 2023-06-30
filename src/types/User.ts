@@ -15,22 +15,22 @@ export class User implements UserRecord {
   username: string
   email: string
   password: string
-  readonly createdAt: Date;
+  readonly createdAt: Date
   readonly updatedAt: Date
 
   constructor(
-      id: string,
-      email: string,
-      username: string,
-      password: string,
-      createdAt: Date,
-      updatedAt: Date
-    ) {
-    this._id = id;
-    this.username = username;
-    this.email = email;
-    this.password = password;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
-  };
+    id: string,
+    email: string,
+    username: string,
+    password: string,
+    createdAt: Date,
+    updatedAt: Date
+  ) {
+    this._id = id
+    this.username = username
+    this.email = email
+    this.password = password
+    this.createdAt = createdAt
+    this.updatedAt = updatedAt
+  }
 }

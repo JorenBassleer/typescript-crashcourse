@@ -11,26 +11,18 @@
       </div>
       <section>
         <div class="flex justify-between">
-          <div
-            v-if="currentBrand !== null"
-            class="w-1/2"
-          >
+          <div v-if="currentBrand !== null" class="w-1/2">
             {{ currentBrand.name }}
           </div>
-          <div
-            v-if="currentTypeOfAppliance !== null"
-            class="w-1/2"
-          >
-             {{ currentTypeOfAppliance.name }}
+          <div v-if="currentTypeOfAppliance !== null" class="w-1/2">
+            {{ currentTypeOfAppliance.name }}
           </div>
         </div>
       </section>
       <section class="shadow-xl p-6 rounded-xl my-6 w-full h-96">
         <img :src="currentAppliance.image" />
       </section>
-      <section class="flex justify-end">
-        Amount in stock ...
-      </section>
+      <section class="flex justify-end">Amount in stock ...</section>
       <section class="text-gray-700 font-thin">
         {{ currentAppliance.details }}
       </section>
@@ -40,37 +32,37 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, computed } from 'vue'
-import { type RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
-import { useApplianceStore } from '@/stores/appliance';
-import { useBrandStore } from '@/stores/brand';
-import type { Brand } from '@/types/Brand';
+import { type RouteLocationNormalizedLoaded, useRoute } from 'vue-router'
+import { useApplianceStore } from '@/stores/appliance'
+import { useBrandStore } from '@/stores/brand'
+import type { Brand } from '@/types/Brand'
 import { storeToRefs } from 'pinia'
 import { ApplianceSearchManager, type Appliance } from '@/types/Appliance'
 import { type TypeOfAppliance, TypeOfApplianceSearchManager } from '@/types/TypeOfAppliance'
 
-const applianceStore = useApplianceStore();
-const brandStore = useBrandStore();
-const applianceSearcher = new ApplianceSearchManager();
-const typeOfApplianceSearcher = new TypeOfApplianceSearchManager();
+const applianceStore = useApplianceStore()
+const brandStore = useBrandStore()
+const applianceSearcher = new ApplianceSearchManager()
+const typeOfApplianceSearcher = new TypeOfApplianceSearchManager()
 
-const { appliances } = storeToRefs(applianceStore);
+const { appliances } = storeToRefs(applianceStore)
 
 const route: RouteLocationNormalizedLoaded = useRoute()
 const currentAppliance = computed<Appliance | null>(() => {
-  const applianceId = Array.isArray(route.params.id)
-    ? route.params.id[0]
-    : route.params.id; 
+  const applianceId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id
 
-  return applianceSearcher.searchAppliance(applianceId);
-});
+  return applianceSearcher.searchAppliance(applianceId)
+})
 
 const currentBrand = computed<Brand | null>(() => {
-  return currentAppliance.value ? brandStore.searchBrandOnId(currentAppliance.value?.brand) : null;
-});
+  return currentAppliance.value ? brandStore.searchBrandOnId(currentAppliance.value?.brand) : null
+})
 
 const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
-  return currentAppliance.value ? typeOfApplianceSearcher.searchTypeOfAppliance(currentAppliance.value.type) : null;
-});
+  return currentAppliance.value
+    ? typeOfApplianceSearcher.searchTypeOfAppliance(currentAppliance.value.type)
+    : null
+})
 
 onBeforeMount(() => {
   if (appliances.value.length === 0) applianceStore.setAppliances()

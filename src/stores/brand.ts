@@ -21,13 +21,13 @@ export const useBrandStore = defineStore('brand', () => {
     }
   }
   const searchBrandOnId = (brandId: String): Brand | null => {
-    const foundBrand = brands.value.find((brand) => brand._id === brandId);
-    return foundBrand ? foundBrand : null;
+    const foundBrand = brands.value.find((brand) => brand._id === brandId)
+    return foundBrand ? foundBrand : null
   }
-  return { 
-      setBrands,
-      createBrand,
-      brands,
-      searchBrandOnId,
-    }
+  return {
+    setBrands,
+    createBrand,
+    brands,
+    searchBrandOnId
+  }
 })
