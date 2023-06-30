@@ -24,11 +24,3 @@ export class TypeOfAppliance implements TypeOfApplianceRecord {
     this.updatedAt = updatedAt;
   }
 }
-export class TypeOfApplianceSearchManager {
-  private typeOfApplianceStore = useTypeOfApplianceStore();
-  
-  searchTypeOfAppliance(typeId: string) : TypeOfAppliance | null {
-    const foundType = this.typeOfApplianceStore.$state.typesOfAppliance.find((entry) => entry._id === typeId);
-    return foundType ? foundType : null;
-  }
-}
