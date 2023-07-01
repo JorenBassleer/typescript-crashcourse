@@ -21,5 +21,5 @@
   </section>
 </template>
 <script setup lang="ts">
-import NavItem from './NavItem.vue'
+import NavItem from './NavItem.vue';
 </script>

@@ -6,15 +6,15 @@
   </section>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance'
-import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue';
+import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
+import { storeToRefs } from 'pinia';
 
-const typeOfApplianceStore = useTypeOfApplianceStore()
+const typeOfApplianceStore = useTypeOfApplianceStore();
 
-const { typesOfAppliance } = storeToRefs(typeOfApplianceStore)
+const { typesOfAppliance } = storeToRefs(typeOfApplianceStore);
 
 onMounted(async () => {
-  if (typesOfAppliance.value.length === 0) await typeOfApplianceStore.setTypeOfAppliance()
-})
+  if (typesOfAppliance.value.length === 0) await typeOfApplianceStore.setTypesOfAppliance();
+});
 </script>

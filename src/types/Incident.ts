@@ -1,4 +1,4 @@
-import type BaseRecord from './Record'
+import type BaseRecord from './Record';
 
 export interface Incident {
   user: string

@@ -39,15 +39,15 @@
   <section v-else>Sorry, we could not find the appliance you're looking for</section>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, computed } from 'vue'
+import { onBeforeMount, computed } from 'vue';
 import { type RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
 import { useApplianceStore } from '@/stores/appliance';
 import { useBrandStore } from '@/stores/brand';
 import type { Brand } from '@/types/Brand';
-import { storeToRefs } from 'pinia'
+import { storeToRefs } from 'pinia';
 import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
-import type { Appliance } from '@/types/Appliance'
-import type { TypeOfAppliance } from '@/types/TypeOfAppliance'
+import type { Appliance } from '@/types/Appliance';
+import type { TypeOfAppliance } from '@/types/TypeOfAppliance';
 
 const applianceStore = useApplianceStore();
 const brandStore = useBrandStore();
@@ -55,7 +55,7 @@ const typeOfApplianceStore = useTypeOfApplianceStore();
 
 const { appliances } = storeToRefs(applianceStore);
 
-const route: RouteLocationNormalizedLoaded = useRoute()
+const route: RouteLocationNormalizedLoaded = useRoute();
 const currentAppliance = computed<Appliance | null>(() => {
   const applianceId = Array.isArray(route.params.id)
     ? route.params.id[0]
@@ -73,6 +73,6 @@ const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
 });
 
 onBeforeMount(() => {
-  if (appliances.value.length === 0) applianceStore.setAppliances()
-})
+  if (appliances.value.length === 0) applianceStore.setAppliances();
+});
 </script>
