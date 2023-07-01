@@ -5,5 +5,5 @@
   </section>
 </template>
 <script setup lang="ts">
-import ApplianceList from '@components/appliance/ApplianceList.vue'
+import ApplianceList from '@components/appliance/ApplianceList.vue';
 </script>

@@ -26,31 +26,31 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useAuthStore } from '@/stores/auth'
-import { storeToRefs } from 'pinia'
-import { useRouter } from 'vue-router'
-import type { UserAuth } from '@/types/User'
+import { ref, onMounted } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+import type { UserAuth } from '@/types/User';
 
 const userLogin = ref<UserAuth>({
   email: '',
   password: ''
-})
+});
 
-const authStore = useAuthStore()
-const { user } = storeToRefs(authStore)
-const router = useRouter()
+const authStore = useAuthStore();
+const { user } = storeToRefs(authStore);
+const router = useRouter();
 
 const handleLogin = async (): Promise<void> => {
   try {
     // await authStore.login(userLogin.value)
-    router.push({ name: 'dashboard' })
+    router.push({ name: 'dashboard' });
   } catch (error) {
     // handleError
   }
-}
+};
 
 onMounted(() => {
-  if (user.value) router.push({ name: 'dashboard' })
-})
+  if (user.value) router.push({ name: 'dashboard' });
+});
 </script>

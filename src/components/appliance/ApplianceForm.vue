@@ -28,37 +28,37 @@
   <section v-else>Submitting....</section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { BaseAppliance } from '@/types/Appliance'
-import { storeToRefs } from 'pinia'
-import { useApplianceStore } from '@/stores/appliance'
-import { useBrandStore } from '@/stores/brand'
-import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance'
+import { ref } from 'vue';
+import type { BaseAppliance } from '@/types/Appliance';
+import { storeToRefs } from 'pinia';
+import { useApplianceStore } from '@/stores/appliance';
+import { useBrandStore } from '@/stores/brand';
+import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
 
-const applianceStore = useApplianceStore()
-const typeOfApplianceStore = useTypeOfApplianceStore()
-const brandStore = useBrandStore()
+const applianceStore = useApplianceStore();
+const typeOfApplianceStore = useTypeOfApplianceStore();
+const brandStore = useBrandStore();
 
-const { typesOfAppliance } = storeToRefs(typeOfApplianceStore)
-const { brands } = storeToRefs(brandStore)
+const { typesOfAppliance } = storeToRefs(typeOfApplianceStore);
+const { brands } = storeToRefs(brandStore);
 
-const isSubmitting = ref<Boolean>(false)
+const isSubmitting = ref<Boolean>(false);
 const newAppliance = ref<BaseAppliance>({
   name: '',
   details: '',
   brand: '',
   type: ''
-})
+});
 const handleSubmitForm = async (): Promise<void> => {
   try {
-    isSubmitting.value = true
-    await applianceStore.createAppliance(newAppliance.value)
+    isSubmitting.value = true;
+    await applianceStore.createAppliance(newAppliance.value);
   } catch (error) {
     // idk yet
   } finally {
-    isSubmitting.value = false
+    isSubmitting.value = false;
   }
-}
+};
 </script>
 <style scoped>
 * {

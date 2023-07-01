@@ -11,26 +11,18 @@
       </div>
       <section>
         <div class="flex justify-between">
-          <div
-            v-if="currentBrand !== null"
-            class="w-1/2"
-          >
+          <div v-if="currentBrand !== null" class="w-1/2">
             {{ currentBrand.name }}
           </div>
-          <div
-            v-if="currentTypeOfAppliance !== null"
-            class="w-1/2"
-          >
-             {{ currentTypeOfAppliance.name }}
+          <div v-if="currentTypeOfAppliance !== null" class="w-1/2">
+            {{ currentTypeOfAppliance.name }}
           </div>
         </div>
       </section>
       <section class="shadow-xl p-6 rounded-xl my-6 w-full h-96">
         <img :src="currentAppliance.image" />
       </section>
-      <section class="flex justify-end">
-        Amount in stock ...
-      </section>
+      <section class="flex justify-end">Amount in stock ...</section>
       <section class="text-gray-700 font-thin">
         {{ currentAppliance.details }}
       </section>
@@ -57,9 +49,7 @@ const { appliances } = storeToRefs(applianceStore);
 
 const route: RouteLocationNormalizedLoaded = useRoute();
 const currentAppliance = computed<Appliance | null>(() => {
-  const applianceId = Array.isArray(route.params.id)
-    ? route.params.id[0]
-    : route.params.id; 
+  const applianceId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
 
   return applianceStore.searchApplianceOnId(applianceId);
 });
@@ -69,7 +59,9 @@ const currentBrand = computed<Brand | null>(() => {
 });
 
 const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
-  return currentAppliance.value ? typeOfApplianceStore.searchTypeOfApplianceById(currentAppliance.value.type) : null;
+  return currentAppliance.value
+    ? typeOfApplianceStore.searchTypeOfApplianceById(currentAppliance.value.type)
+    : null;
 });
 
 onBeforeMount(() => {

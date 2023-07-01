@@ -20,20 +20,22 @@
   </article>
 </template>
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
-import type { Appliance } from '@/types/Appliance'
-import type { Brand } from '@/types/Brand'
-import type { TypeOfAppliance } from '@/types/TypeOfAppliance'
+import { defineProps, computed } from 'vue';
+import type { Appliance } from '@/types/Appliance';
+import type { Brand } from '@/types/Brand';
+import type { TypeOfAppliance } from '@/types/TypeOfAppliance';
 
 interface Props {
-  appliance: Appliance
-  brands: Brand[]
-  typesOfAppliance: TypeOfAppliance[]
+  appliance: Appliance;
+  brands: Brand[];
+  typesOfAppliance: TypeOfAppliance[];
 }
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const foundBrand = computed(() => props.brands.find((brand) => brand._id === props.appliance.brand))
+const foundBrand = computed(() =>
+  props.brands.find((brand) => brand._id === props.appliance.brand)
+);
 const foundTypeOfAppliance = computed(() =>
   props.typesOfAppliance.find((type) => type._id === props.appliance.type)
-)
+);
 </script>
