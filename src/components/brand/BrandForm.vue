@@ -1,9 +1,11 @@
 <template>
-  <h2>Brand Form</h2>
-  <form v-if="!isSubmitting" @submit="handleFormSubmit">
-    <input v-model="newBrand.name" />
-  </form>
-  <section v-else>Is submitting...</section>
+  <section>
+    <h2>Brand Form</h2>
+    <form v-if="!isSubmitting" @submit="handleFormSubmit">
+      <input v-model="newBrand.name" />
+    </form>
+    <section v-else>Is submitting...</section>
+  </section>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';

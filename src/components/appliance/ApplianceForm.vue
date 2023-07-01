@@ -1,31 +1,33 @@
 <template>
-  <h1>Appliance form</h1>
-  <form v-if="!isSubmitting" @submit.prevent="handleSubmitForm">
-    Name
-    <input v-model="newAppliance.name" type="text" name="name" />
-    Details
-    <textarea v-model="newAppliance.details"> </textarea>
-    <section v-show="brands.length > 0">
-      <select v-model="newAppliance.brand">
-        <option v-for="brand in brands" :key="brand._id" :value="brand._id">
-          {{ brand.name }}
-        </option>
-      </select>
-    </section>
-    <section v-show="typesOfAppliance.length > 0">
-      <select v-model="newAppliance.type">
-        <option
-          v-for="typeOfAppliance in typesOfAppliance"
-          :key="typeOfAppliance._id"
-          :value="typeOfAppliance._id"
-        >
-          {{ typeOfAppliance.name }}
-        </option>
-      </select>
-    </section>
-    <button type="submit">Submit</button>
-  </form>
-  <section v-else>Submitting....</section>
+  <section>
+    <h1>Appliance form</h1>
+    <form v-if="!isSubmitting" @submit.prevent="handleSubmitForm">
+      Name
+      <input v-model="newAppliance.name" type="text" name="name" />
+      Details
+      <textarea v-model="newAppliance.details"> </textarea>
+      <section v-show="brands.length > 0">
+        <select v-model="newAppliance.brand">
+          <option v-for="brand in brands" :key="brand._id" :value="brand._id">
+            {{ brand.name }}
+          </option>
+        </select>
+      </section>
+      <section v-show="typesOfAppliance.length > 0">
+        <select v-model="newAppliance.type">
+          <option
+            v-for="typeOfAppliance in typesOfAppliance"
+            :key="typeOfAppliance._id"
+            :value="typeOfAppliance._id"
+          >
+            {{ typeOfAppliance.name }}
+          </option>
+        </select>
+      </section>
+      <button type="submit">Submit</button>
+    </form>
+    <section v-else>Submitting....</section>
+  </section>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';

@@ -1,4 +1,8 @@
-<template></template>
+<template>
+  <form>
+
+  </form>
+</template>
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { BaseReservation } from '@/types/Reservation';
