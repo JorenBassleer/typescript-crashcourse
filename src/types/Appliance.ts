@@ -40,13 +40,3 @@ export class Appliance implements ApplianceRecord {
     this.updatedAt = updatedAt
   }
 }
-// Maybe make a BaseSearchManager
-export class ApplianceSearchManager {
-  private applianceStore = useApplianceStore()
-  searchAppliance(applianceId: string): Appliance | null {
-    const foundAppliance = this.applianceStore.$state.appliances.find(
-      (appliance) => appliance._id === applianceId
-    )
-    return foundAppliance ? foundAppliance : null
-  }
-}
