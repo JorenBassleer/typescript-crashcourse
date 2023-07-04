@@ -16,6 +16,7 @@
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "eslint-import-resolver-alias": "^1.1.2",
+    "firebase": "^9.23.0",
     "pinia": "^2.0.32",
     "vite": "^4.1.4",
     "vitest": "^0.29.1",
