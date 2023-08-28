@@ -23,8 +23,12 @@
         <img :src="currentAppliance.image" />
       </section>
       <section class="flex justify-end">Amount in stock ...</section>
-      <section class="text-gray-700 font-thin">
+      <section class="text-gray-700 font-thin p-4 border-2 border-black rounded-xl h-64 my-4">
         {{ currentAppliance.details }}
+      </section>
+      <section class="flex justify-between">
+        <BaseButton @click="handleChangePage(-1)">Previous</BaseButton>
+        <BaseButton @click="handleChangePage(1)">Next</BaseButton>
       </section>
     </div>
   </section>
@@ -32,7 +36,7 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, computed } from 'vue';
-import { type RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
+import { type RouteLocationNormalizedLoaded, useRoute, useRouter } from 'vue-router';
 import { useApplianceStore } from '@/stores/appliance';
 import { useBrandStore } from '@/stores/brand';
 import type { Brand } from '@/types/Brand';
@@ -47,7 +51,9 @@ const typeOfApplianceStore = useTypeOfApplianceStore();
 
 const { appliances } = storeToRefs(applianceStore);
 
+const router = useRouter();
 const route: RouteLocationNormalizedLoaded = useRoute();
+
 const currentAppliance = computed<Appliance | null>(() => {
   const applianceId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
 
@@ -63,6 +69,14 @@ const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
     ? typeOfApplianceStore.searchTypeOfApplianceById(currentAppliance.value.type)
     : null;
 });
+
+const handleChangePage = (amountIncrease: number) : void => {
+  const applianceId = appliances.value.findIndex((appliance) => appliance._id === currentAppliance.value?._id);
+  const newLocationId = applianceId + amountIncrease;
+  const pageChangeToAppliance = appliances.value[newLocationId] ?? appliances.value[0];
+
+  router.push({ name: 'single-appliance', params: {id: pageChangeToAppliance._id } });
+};
 
 onBeforeMount(() => {
   if (appliances.value.length === 0) applianceStore.setAppliances();
