@@ -16,6 +16,7 @@ export const useApplianceStore = defineStore('appliance', () => {
     try {
       appliances.value = await getAppliances();
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };
@@ -34,6 +35,7 @@ export const useApplianceStore = defineStore('appliance', () => {
     try {
       await createApplianceAPI(appliance);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };

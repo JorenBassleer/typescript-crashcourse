@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { getTypes, createType } from '@/api/typeOfAppliance';
 import type { TypeOfAppliance, BaseTypeOfAppliance } from '@/types/TypeOfAppliance';
@@ -10,6 +10,7 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
     try {
       typesOfAppliance.value = await getTypes();
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };
@@ -17,6 +18,7 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
     try {
       await createType(type);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };

@@ -10,6 +10,7 @@ export const useBrandStore = defineStore('brand', () => {
     try {
       brands.value = await getBrands();
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };
@@ -17,6 +18,7 @@ export const useBrandStore = defineStore('brand', () => {
     try {
       await createBrandAPI(brand);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };
