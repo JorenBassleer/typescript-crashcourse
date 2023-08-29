@@ -1,11 +1,21 @@
 <template>
-  <ApplianceCard
-    v-if="currentAppliance?._id && currentBrand?._id && currentTypeOfAppliance?._id"
-    :appliance="currentAppliance"
-    :brand="currentBrand"
-    :type-of-appliance="currentTypeOfAppliance"
-  />
-  <section v-else>Sorry, we could not find the appliance you're looking for</section>
+  <section class="flex justify-between">
+    <ApplianceCard
+    />
+    <div>
+      <ApplianceCard
+        v-if="currentAppliance?._id"
+        :appliance="currentAppliance"
+        :brand="currentBrand"
+        :type-of-appliance="currentTypeOfAppliance"
+        :with-button="true"
+        @handle-change-page="handleChangePage($event)"
+      />
+      <section v-else>Sorry, we could not find the appliance you're looking for</section>
+    </div>
+    <ApplianceCard
+    />
+  </section>
 </template>
 <script setup lang="ts">
 import { onBeforeMount, computed, defineProps, withDefaults } from 'vue';

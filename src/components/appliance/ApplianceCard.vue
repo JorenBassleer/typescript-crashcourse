@@ -1,5 +1,5 @@
 <template>
-  <section v-if="appliance?._id" class="w-full h-full flex justify-center rounded-xl">
+  <section class="w-full h-full flex justify-center rounded-xl">
     <div
       class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8"
     >
@@ -35,7 +35,6 @@
       </section>
     </div>
   </section>
-  <section v-else>Sorry, we could not find the appliance you're looking for</section>
 </template>
 <script setup lang="ts">
 import { defineProps, withDefaults, defineEmits } from 'vue';
@@ -45,13 +44,14 @@ import type { TypeOfAppliance } from '@/types/TypeOfAppliance';
 
 interface Props{
   appliance: Appliance,
-  brand: Brand,
-  typeOfAppliance: TypeOfAppliance,
+  brand?: Brand | null,
+  typeOfAppliance?: TypeOfAppliance | null,
   withButtons?: boolean,
 }
-
 const props = withDefaults(defineProps<Props>(), {
   withButtons: false,
+  brand: null,
+  typeOfAppliance: null,
 });
 
 const emit = defineEmits(['handleChangePage']);

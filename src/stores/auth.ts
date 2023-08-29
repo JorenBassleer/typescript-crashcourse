@@ -12,6 +12,7 @@ export const useAuthStore = defineStore('auth', () => {
       user.value = await loginAPI(userLogin);
       return user.value;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
       return <AxiosResponse>error;
     }
