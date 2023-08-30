@@ -1,6 +1,7 @@
 <template>
   <section class="flex justify-between">
     <ApplianceCard
+      :appliance
     />
     <div>
       <ApplianceCard
@@ -25,7 +26,7 @@ import { useBrandStore } from '@/stores/brand';
 import type { Brand } from '@/types/Brand';
 import { storeToRefs } from 'pinia';
 import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
-import type { Appliance } from '@/types/Appliance';
+import { Appliance } from '@/types/Appliance';
 import type { TypeOfAppliance } from '@/types/TypeOfAppliance';
 import ApplianceCard from '@/components/appliance/ApplianceCard.vue';
 
@@ -56,6 +57,16 @@ const currentAppliance = computed<Appliance | null>(() => {
   }
   return applianceStore.searchApplianceOnId(props.applianceId);;
 });
+
+const applianceRotator = (numChange: number): Appliance => {
+  const applianceId = appliances.value.findIndex((appliance) => appliance._id === currentAppliance.value?._id);
+  return appliances.value[applianceId + numChange ] ?? 
+  numChange > 0 ? appliances.value[0] : appliances.value[appliances.value.length];
+};
+
+const previousAppliance = computed<Appliance>(() => applianceRotator(-1));
+
+const nextAppliance = computed<Appliance>(() => applianceRotator(+1));
 
 const currentBrand = computed<Brand | null>(() => {
   return currentAppliance.value ? brandStore.searchBrandOnId(currentAppliance.value?.brand) : null;
