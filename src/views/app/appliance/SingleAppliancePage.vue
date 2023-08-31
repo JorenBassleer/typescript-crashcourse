@@ -1,21 +1,26 @@
 <template>
   <section class="flex justify-between">
-    <ApplianceCard
-      :appliance
-    />
-    <div>
+    <div class="w-1/5">
+      <ApplianceCard
+        :appliance="previousAppliance"
+      />
+    </div>
+    <div class="w-4/5">
       <ApplianceCard
         v-if="currentAppliance?._id"
         :appliance="currentAppliance"
         :brand="currentBrand"
         :type-of-appliance="currentTypeOfAppliance"
-        :with-button="true"
+        :with-buttons="true"
         @handle-change-page="handleChangePage($event)"
       />
       <section v-else>Sorry, we could not find the appliance you're looking for</section>
     </div>
-    <ApplianceCard
-    />
+    <div class="w-1/5">
+      <ApplianceCard
+        :appliance="nextAppliance"
+      />
+    </div>
   </section>
 </template>
 <script setup lang="ts">
@@ -26,17 +31,9 @@ import { useBrandStore } from '@/stores/brand';
 import type { Brand } from '@/types/Brand';
 import { storeToRefs } from 'pinia';
 import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
-import { Appliance } from '@/types/Appliance';
+import type { Appliance } from '@/types/Appliance';
 import type { TypeOfAppliance } from '@/types/TypeOfAppliance';
 import ApplianceCard from '@/components/appliance/ApplianceCard.vue';
-
-interface Props {
-  applianceId?: string | undefined,
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  applianceId: undefined,
-});
 
 const applianceStore = useApplianceStore();
 const brandStore = useBrandStore();
@@ -50,18 +47,15 @@ const router = useRouter();
 const route: RouteLocationNormalizedLoaded = useRoute();
 
 const currentAppliance = computed<Appliance | null>(() => {
-  if (props.applianceId === undefined) {
     const applianceId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
   
     return applianceStore.searchApplianceOnId(applianceId);
-  }
-  return applianceStore.searchApplianceOnId(props.applianceId);;
 });
 
 const applianceRotator = (numChange: number): Appliance => {
   const applianceId = appliances.value.findIndex((appliance) => appliance._id === currentAppliance.value?._id);
   return appliances.value[applianceId + numChange ] ?? 
-  numChange > 0 ? appliances.value[0] : appliances.value[appliances.value.length];
+  numChange > 0 ? appliances.value[0] : appliances.value[appliances.value.length - 1];
 };
 
 const previousAppliance = computed<Appliance>(() => applianceRotator(-1));

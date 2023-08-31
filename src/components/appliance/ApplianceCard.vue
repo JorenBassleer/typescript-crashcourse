@@ -48,7 +48,7 @@ interface Props{
   typeOfAppliance?: TypeOfAppliance | null,
   withButtons?: boolean,
 }
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   withButtons: false,
   brand: null,
   typeOfAppliance: null,
