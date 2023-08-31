@@ -24,7 +24,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, computed, defineProps, withDefaults } from 'vue';
+import { onBeforeMount, computed } from 'vue';
 import { type RouteLocationNormalizedLoaded, useRoute, useRouter } from 'vue-router';
 import { useApplianceStore } from '@/stores/appliance';
 import { useBrandStore } from '@/stores/brand';
