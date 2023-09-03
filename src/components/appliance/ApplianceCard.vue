@@ -4,8 +4,11 @@
       class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8"
     >
       <div class="w-full flex justify-between items-center">
-        <h1 class="w-full text-center text-2xl">Current Appliance: {{ appliance.name }}</h1>
-        <div class="flex justify-end">
+        <h1 class="w-full text-center text-2xl">{{ appliance.name }}</h1>
+        <div
+          v-show="withButtons"
+          class="flex justify-end"
+        >
           <BaseButton>Add</BaseButton>
         </div>
       </div>
@@ -42,7 +45,7 @@ import type { Appliance } from '@/types/Appliance';
 import type { Brand } from '@/types/Brand';
 import type { TypeOfAppliance } from '@/types/TypeOfAppliance';
 
-interface Props{
+interface Props {
   appliance: Appliance,
   brand?: Brand | null,
   typeOfAppliance?: TypeOfAppliance | null,
