@@ -1,5 +1,5 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution');
+require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
@@ -16,7 +16,7 @@ module.exports = {
   },
   rules: {
     'max-len': 'off',
-    'no-underscore-dangle': 'off',
+      'no-underscore-dangle': 'off',
     'no-console': 'error',
     "semi": [2, "always"],
     'quote-props': ['error', 'consistent-as-needed'],
@@ -33,4 +33,4 @@ module.exports = {
       },
     }
   }
-};
+}

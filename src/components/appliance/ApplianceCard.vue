@@ -1,8 +1,6 @@
 <template>
   <section class="w-full h-full flex justify-center rounded-xl">
-    <div
-      class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8"
-    >
+    <div class="bg-secondary rounded-xl w-1/2 shadow-2xl hover:shadow-md transition-shadow duration-300 text-gray-700 p-8">
       <div class="w-full flex justify-between items-center">
         <h1 class="w-full text-center text-2xl">{{ appliance.name }}</h1>
         <div

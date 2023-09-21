@@ -1,6 +1,4 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
+// Move to ENV
 const firebaseConfig = {
   apiKey: 'AIzaSyDJHy0Hin7gYrhdAHkBeCguVcfHa6HyWiU',
   authDomain: 'avreservationtool.firebaseapp.com',
@@ -11,7 +9,4 @@ const firebaseConfig = {
   measurementId: 'G-GRXE682Z19'
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-export const auth = firebase.auth();
+export const authConfig = firebaseConfig;
