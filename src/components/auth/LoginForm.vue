@@ -1,8 +1,5 @@
 <template>
-  <FormLayout
-    class="flex flex-col rounded-xl p-8 shadow-xl text-white border-2 hover:shadow-2xl transition-all duration-300 w-1/3"
-    title="Login"
-  >
+  <FormLayout title="Login">
     <form class="p-6 w-full flex flex-col gap-2 px-10" @submit.prevent="handleLogin">
       <div class="flex gap-2">
         Select user type
