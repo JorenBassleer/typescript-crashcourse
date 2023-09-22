@@ -10,7 +10,7 @@
       </div>
       <div class="flex flex-col">
         <label>Email</label>
-        <BaseInput v-model="userLogin.email" type="text" placeholder="Enter username" subText="e.g. user@email.com" />
+        <BaseInput v-model="userLogin.email" type="text" placeholder="Enter username" sub-text="e.g. user@email.com" />
       </div>
       <div class="flex flex-col">
         <label>Password</label>
