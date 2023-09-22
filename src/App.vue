@@ -15,13 +15,23 @@ import { onMounted } from 'vue';
 import { useApplianceStore } from './stores/appliance';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/stores/auth';
+import { getAuth, onAuthStateChanged, signOut} from 'firebase/auth';
 
 const applianceStore = useApplianceStore();
 const authStore = useAuthStore();
 
 const { user } = storeToRefs(authStore);
-
+let auth;
 onMounted(async () => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if(user) {
+      // Set user
+    } else {
+      // User not logged in
+    }
+
+  });
   await applianceStore.setAppliances();
 });
 </script>

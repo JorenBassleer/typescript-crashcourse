@@ -1,11 +1,12 @@
 <template>
   <button
-    class="rounded-full shadow-md bg-white text-gray-800 font-semibold"
+    class="rounded-full shadow-md text-gray-800 font-semibold hover:shadow-xl transition-all duration-300"
     :class="{
       'bg-green-800 hover:bg-green-300': type === 'success',
-      'bg-red-800': type === 'danger',
+      'bg-red-300 text-red-800': type === 'danger',
       'bg-orange-800': type === 'warning',
       'bg-cool-gray-700': type === 'primary',
+      'bg-white': type === 'default',
        '': size === 'mini',
        '' : size === 'small',
       'px-4 py-2': size === 'base',
@@ -21,7 +22,7 @@
 import { defineProps, defineEmits, ref } from 'vue';
 
 interface ButtonProps {
-  type?: 'primary' | 'success' | 'danger' | 'warning';
+  type?: 'primary' | 'success' | 'danger' | 'warning' | 'default';
   size?: 'mini' | 'small' | 'base' | 'large';
   disabled?: boolean;
   actionType?: 'button' | 'submit' | 'reset';

@@ -28,6 +28,7 @@ import { ref, onMounted } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import type { UserAuth } from '@/types/User';
 import FormLayout from '@/components/form/FormLayout.vue';
 
@@ -42,6 +43,7 @@ const router = useRouter();
 
 const handleLogin = async (): Promise<void> => {
   try {
+    signInWithEmailAndPassword(getAuth(), userLogin.value.email, userLogin.value.password);
     // await authStore.login(userLogin.value)
     router.push({ name: 'dashboard' });
   } catch (error) {
