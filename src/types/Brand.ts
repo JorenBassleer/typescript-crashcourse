@@ -1,5 +1,4 @@
 import type BaseRecord from './Record';
-import { useBrandStore } from '@/stores/brand';
 
 export interface BaseBrand {
   name: string;
