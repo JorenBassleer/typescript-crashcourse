@@ -10,13 +10,14 @@
       </div>
       <div class="flex flex-col">
         <label>Email</label>
-        <BaseInput v-model="userLogin.email" type="text" placeholder="Enter username" sub-text="e.g. user@email.com" />
+        <BaseInput v-model="userLogin.email" type="text" placeholder="Enter email" sub-text="e.g. user@email.com" />
       </div>
       <div class="flex flex-col">
         <label>Password</label>
         <BaseInput v-model="userLogin.password" type="password" placeholder="********" />
       </div>
-      <div class="flex justify-end">
+      <div class="flex justify-end items-center gap-6">
+        <BaseButton @click="$router.push({ name: 'register' })">Register</BaseButton>
         <BaseButton class="my-2" @click="handleLogin"> Login </BaseButton>
       </div>
     </form>

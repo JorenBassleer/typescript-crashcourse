@@ -16,7 +16,7 @@ import { defineProps, defineEmits, withDefaults, ref } from 'vue';
 
 interface InputProps {
   modelValue: string;
-  size: 'mini' | 'small' | 'base' | 'large';
+  size?: 'mini' | 'small' | 'base' | 'large';
   type?: string;
   subText?: string;
   disabled?: boolean;

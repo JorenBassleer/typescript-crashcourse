@@ -6,10 +6,10 @@
       'bg-red-800': type === 'danger',
       'bg-orange-800': type === 'warning',
       'bg-cool-gray-700': type === 'primary',
-      s: size === 'mini',
-      d: size === 'small',
+       '': size === 'mini',
+       '' : size === 'small',
       'px-4 py-2': size === 'base',
-      ds: size === 'large'
+      '':  size === 'large'
     }"
     :type="actionType"
     @click="handleClick"
