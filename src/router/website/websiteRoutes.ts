@@ -16,5 +16,15 @@ export default [
     path: '/links',
     name: 'links',
     component: () => import('../../views/website/LinksView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../../views/app/auth/LoginPage.vue'),
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../../views/app/auth/RegisterPage.vue'),
   }
 ];

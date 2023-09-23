@@ -23,20 +23,4 @@ export default [
       requiresAuth: true,
     }
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../../views/app/auth/LoginPage.vue'),
-    meta: {
-      requiresAuth: true,
-    }
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: () => import('../../views/app/auth/RegisterPage.vue'),
-    meta: {
-      requiresAuth: true,
-    }
-  }
 ];

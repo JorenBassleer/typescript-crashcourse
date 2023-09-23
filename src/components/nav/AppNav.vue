@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 import NavItem from './NavItem.vue';
-import {getAuth, signOut} from 'firebase/auth';
+import { getAuth, signOut} from 'firebase/auth';
 // Get nav items from external file
 // ++ create type nav item
 const navItems = [
@@ -33,10 +33,8 @@ const navItems = [
 const handleLogout = async (): Promise<void> => {
   try {
     signOut(getAuth());
-    console.log('sign out succes');
   } catch (error) {
     //
-    console.log('sign out failed');
   }
 };
 </script>
