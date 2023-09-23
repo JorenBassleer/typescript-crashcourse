@@ -33,8 +33,10 @@ const navItems = [
 const handleLogout = async (): Promise<void> => {
   try {
     signOut(getAuth());
+    console.log('sign out succes');
   } catch (error) {
     //
+    console.log('sign out failed');
   }
 };
 </script>
