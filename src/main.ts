@@ -10,7 +10,6 @@ import BaseInput from './components/common/input/BaseInput.vue';
 import { initializeApp } from 'firebase/app';
 import { authConfig } from '../src/auth/firebaseConfig';
 
-
 initializeApp(authConfig);
 
 createApp(App)

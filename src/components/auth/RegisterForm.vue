@@ -3,7 +3,12 @@
     <form class="p-6 w-full flex flex-col gap-2 px-10" @submit.prevent="handleRegister">
       <div class="flex flex-col">
         <label>Email</label>
-        <BaseInput v-model="newUser.email" type="text" placeholder="Enter email" sub-text="e.g. user@email.com" />
+        <BaseInput
+          v-model="newUser.email"
+          type="text"
+          placeholder="Enter email"
+          sub-text="e.g. user@email.com"
+        />
       </div>
       <div class="flex flex-col">
         <label>Password</label>
@@ -27,12 +32,12 @@ const router = useRouter();
 
 const newUser = ref<UserAuth>({
   email: '',
-  password: '',
+  password: ''
 });
-const handleRegister = async(): Promise<void> => {
+const handleRegister = async (): Promise<void> => {
   try {
     createUserWithEmailAndPassword(getAuth(), newUser.value.email, newUser.value.password);
-    router.push({name: 'dashboard'});
+    router.push({ name: 'dashboard' });
   } catch (error) {
     //
   }

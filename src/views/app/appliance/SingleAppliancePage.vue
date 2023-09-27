@@ -1,9 +1,7 @@
 <template>
   <section class="flex justify-between">
     <div class="w-1/5">
-      <ApplianceCard
-        :appliance="previousAppliance"
-      />
+      <ApplianceCard :appliance="previousAppliance" />
     </div>
     <div class="w-4/5">
       <ApplianceCard
@@ -17,9 +15,7 @@
       <section v-else>Sorry, we could not find the appliance you're looking for</section>
     </div>
     <div class="w-1/5">
-      <ApplianceCard
-        :appliance="nextAppliance"
-      />
+      <ApplianceCard :appliance="nextAppliance" />
     </div>
   </section>
 </template>
@@ -47,15 +43,18 @@ const router = useRouter();
 const route: RouteLocationNormalizedLoaded = useRoute();
 
 const currentAppliance = computed<Appliance | null>(() => {
-    const applianceId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
-  
-    return applianceStore.searchApplianceOnId(applianceId);
+  const applianceId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
+
+  return applianceStore.searchApplianceOnId(applianceId);
 });
 
 const applianceRotator = (numChange: number): Appliance => {
-  const applianceId = appliances.value.findIndex((appliance) => appliance._id === currentAppliance.value?._id);
-  return appliances.value[applianceId + numChange ] ?? 
-  numChange > 0 ? appliances.value[0] : appliances.value[appliances.value.length - 1];
+  const applianceId = appliances.value.findIndex(
+    (appliance) => appliance._id === currentAppliance.value?._id
+  );
+  return appliances.value[applianceId + numChange] ?? numChange > 0
+    ? appliances.value[0]
+    : appliances.value[appliances.value.length - 1];
 };
 
 const previousAppliance = computed<Appliance>(() => applianceRotator(-1));
@@ -72,12 +71,14 @@ const currentTypeOfAppliance = computed<TypeOfAppliance | null>(() => {
     : null;
 });
 
-const handleChangePage = (amountIncrease: number) : void => {
-  const applianceId = appliances.value.findIndex((appliance) => appliance._id === currentAppliance.value?._id);
+const handleChangePage = (amountIncrease: number): void => {
+  const applianceId = appliances.value.findIndex(
+    (appliance) => appliance._id === currentAppliance.value?._id
+  );
   const newLocationId = applianceId + amountIncrease;
   const pageChangeToAppliance = appliances.value[newLocationId] ?? appliances.value[0];
 
-  router.push({ name: 'single-appliance', params: {id: pageChangeToAppliance._id } });
+  router.push({ name: 'single-appliance', params: { id: pageChangeToAppliance._id } });
 };
 
 onBeforeMount(() => {

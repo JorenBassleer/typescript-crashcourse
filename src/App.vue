@@ -17,15 +17,14 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const applianceStore = useApplianceStore();
 
-const auth = getAuth();;
+const auth = getAuth();
 onMounted(async () => {
   onAuthStateChanged(auth, (user) => {
-    if(user) {
+    if (user) {
       // Set user
     } else {
       // User not logged in
     }
-
   });
   await applianceStore.setAppliances();
 });

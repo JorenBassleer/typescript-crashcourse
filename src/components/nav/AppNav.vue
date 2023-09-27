@@ -9,19 +9,14 @@
         :router-to="item.routerTo"
         router-class="text-gray-700"
       />
-      <BaseButton
-        class="mt-auto" type="danger"
-        @click="handleLogout"
-      >
-        Log out
-      </BaseButton>
+      <BaseButton class="mt-auto" type="danger" @click="handleLogout"> Log out </BaseButton>
     </section>
     <!-- Add cart or my current reservation somehwere -->
   </aside>
 </template>
 <script setup lang="ts">
 import NavItem from './NavItem.vue';
-import { getAuth, signOut} from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 // Get nav items from external file
 // ++ create type nav item
 const navItems = [

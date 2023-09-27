@@ -24,7 +24,7 @@ router.beforeEach((to, from, next) => {
     if (getAuth().currentUser) {
       next();
     } else {
-      router.push({name: 'home'});
+      router.push({ name: 'home' });
     }
   } else {
     next();

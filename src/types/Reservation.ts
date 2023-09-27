@@ -10,11 +10,11 @@ export interface BaseReservation {
   amounts: number[];
 }
 
-export interface ReservationRecord extends BaseRecord, BaseReservation { }
+export interface ReservationRecord extends BaseRecord, BaseReservation {}
 
 export class Reservation implements ReservationRecord {
   readonly _id: string;
-  name: string;  
+  name: string;
   details?: string;
   start: Date | null;
   end: Date | null;
@@ -33,7 +33,7 @@ export class Reservation implements ReservationRecord {
     amounts: number[],
     user: string,
     createdAt: Date,
-    updatedAt: Date,
+    updatedAt: Date
   ) {
     this._id = _id;
     this.user = user;
@@ -46,4 +46,4 @@ export class Reservation implements ReservationRecord {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
-};
+}

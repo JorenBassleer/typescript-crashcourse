@@ -7,10 +7,10 @@
       'bg-orange-800': type === 'warning',
       'bg-cool-gray-700': type === 'primary',
       'bg-white': type === 'default',
-       '': size === 'mini',
-       '' : size === 'small',
+      '': size === 'mini',
+      '': size === 'small',
       'px-4 py-2': size === 'base',
-      '':  size === 'large'
+      '': size === 'large'
     }"
     :type="actionType"
     @click="handleClick"

@@ -10,12 +10,13 @@
         <NavItem :router-text="'About'" :router-to="{ name: 'about' }" />
         <NavItem :router-text="'Links'" :router-to="{ name: 'links' }" />
         <NavItem :router-text="'Idk nog iets'" :router-to="{ name: 'about' }" />
-        <BaseButton
-          class="rounded-full bg-white border-2 border-white text-gray-700 font-semibold px-4 py-2"
+        <el-button
+          round
+          size="large"
           @click="$router.push({ name: 'login' })"
         >
           Enter app
-        </BaseButton>
+        </el-button>
       </ul>
     </div>
   </section>
