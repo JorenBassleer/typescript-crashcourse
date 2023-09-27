@@ -30,6 +30,6 @@ export const useBrandStore = defineStore('brand', () => {
     setBrands,
     createBrand,
     brands,
-    searchBrandOnId
+    searchBrandOnId,
   };
 });

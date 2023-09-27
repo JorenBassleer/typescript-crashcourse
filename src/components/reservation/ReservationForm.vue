@@ -1,5 +1,5 @@
 <template>
-  <form></form>
+  <form />
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -12,6 +12,6 @@ const newReservation = ref<BaseReservation>({
   amounts: [],
   start: null,
   end: null,
-  user: '' // Get user from state
+  user: '', // Get user from state
 });
 </script>

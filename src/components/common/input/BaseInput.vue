@@ -7,7 +7,7 @@
       :type="type"
       class="rounded-xl text-gray-700 p-2"
       @input="handleInput"
-    />
+    >
     <span class="text-sm italic font-semibold">{{ subText }}</span>
   </div>
 </template>
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   type: 'text',
   size: 'base',
   subText: '',
-  disabled: false
+  disabled: false,
 });
 const emit = defineEmits(['update:modelValue']);
 

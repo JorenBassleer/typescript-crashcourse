@@ -1,6 +1,9 @@
 <template>
   <section>
-    <div v-for="typeOfAppliance in typesOfAppliance" :key="typeOfAppliance._id">
+    <div
+      v-for="typeOfAppliance in typesOfAppliance"
+      :key="typeOfAppliance._id"
+    >
       {{ typeOfAppliance.name }}
     </div>
   </section>

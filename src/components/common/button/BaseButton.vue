@@ -10,12 +10,12 @@
       '': size === 'mini',
       '': size === 'small',
       'px-4 py-2': size === 'base',
-      '': size === 'large'
+      '': size === 'large',
     }"
     :type="actionType"
     @click="handleClick"
   >
-    <slot></slot>
+    <slot />
   </button>
 </template>
 <script setup lang="ts">
@@ -31,7 +31,7 @@ interface ButtonProps {
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'primary',
   size: 'base',
-  actionType: 'submit'
+  actionType: 'submit',
 });
 const emit = defineEmits(['@click']);
 

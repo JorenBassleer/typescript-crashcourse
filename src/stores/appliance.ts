@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import {
   getAppliances,
   deleteAppliance as deleteApplianceAPI,
-  createAppliance as createApplianceAPI
+  createAppliance as createApplianceAPI,
 } from '@/api/appliance';
 import type { BaseAppliance } from '../types/Appliance';
 import type { Appliance } from '@/types/Appliance';
@@ -50,6 +50,6 @@ export const useApplianceStore = defineStore('appliance', () => {
     deleteAppliance,
     createAppliance,
     searchApplianceOnId,
-    appliances
+    appliances,
   };
 });

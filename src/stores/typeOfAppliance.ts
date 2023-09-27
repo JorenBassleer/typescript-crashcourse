@@ -30,6 +30,6 @@ export const useTypeOfApplianceStore = defineStore('typeOfAppliance', () => {
     setTypesOfAppliance,
     createTypeOfAppliance,
     searchTypeOfApplianceById,
-    typesOfAppliance
+    typesOfAppliance,
   };
 });

@@ -1,7 +1,16 @@
 <template>
-  <form action="" @submit.prevent="submit">
-    <div v-for="(field, index) in fields" :key="field.name">
-      <label :for="field.name" class="label">
+  <form
+    action=""
+    @submit.prevent="submit"
+  >
+    <div
+      v-for="(field, index) in fields"
+      :key="field.name"
+    >
+      <label
+        :for="field.name"
+        class="label"
+      >
         {{ field.label }}
       </label>
       <component
@@ -12,13 +21,21 @@
         :model-value="field.props?.value"
         @update:model-value="onChangeHandler($event, field.name, index)"
       />
-      <div v-if="errors[field.name]" class="error">
+      <div
+        v-if="errors[field.name]"
+        class="error"
+      >
         {{ errors[field.name] }}
       </div>
     </div>
-    <button type="submit" :disabled="!submitable">Submit</button>
-    <br />
-    <br />
+    <button
+      type="submit"
+      :disabled="!submitable"
+    >
+      Submit
+    </button>
+    <br>
+    <br>
     <pre>{{ values }}</pre>
   </form>
 </template>
@@ -41,17 +58,17 @@ interface DataStructure {
 const props = defineProps({
   id: {
     type: [String, Number],
-    default: null
+    default: null,
   },
   fields: {
     type: Array as PropType<Field[]>,
-    default: () => []
-  }
+    default: () => [],
+  },
 });
 
 const data = reactive<DataStructure>({
   errors: {},
-  values: {}
+  values: {},
 });
 
 function validate(value: string, validator: any): ValidationResult {
@@ -61,12 +78,12 @@ function validate(value: string, validator: any): ValidationResult {
     if (error instanceof ZodError) {
       return {
         valid: false,
-        message: error.issues[0].message
+        message: error.issues[0].message,
       };
     }
   }
   return {
-    valid: true
+    valid: true,
   };
 }
 
@@ -74,12 +91,12 @@ function throwErrors(fieldName: string, valid: boolean, message: string | undefi
   if (!valid) {
     data.errors = {
       ...data.errors,
-      [fieldName]: message
+      [fieldName]: message,
     };
   } else {
     data.errors = {
       ...data.errors,
-      [fieldName]: undefined
+      [fieldName]: undefined,
     };
   }
 }

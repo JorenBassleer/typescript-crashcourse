@@ -32,12 +32,12 @@ export default class FormBuilder {
       props: {
         id: {
           default: null,
-          type: String || Number
-        }
+          type: String || Number,
+        },
       },
       render(): VNode {
         return h(FormFactory, { fields: Fields, id: this.id });
-      }
+      },
     });
   }
 }

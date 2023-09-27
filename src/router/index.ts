@@ -10,14 +10,14 @@ const router = createRouter({
     {
       path: '/app',
       redirect: '/dashboard',
-      children: [...appRoutes]
+      children: [...appRoutes],
     },
     {
       path: '/:catchAll(.*)',
       name: 'NotFound',
-      component: () => import('../views/errors/NotFound.vue')
-    }
-  ]
+      component: () => import('../views/errors/NotFound.vue'),
+    },
+  ],
 });
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {

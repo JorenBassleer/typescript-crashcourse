@@ -1,5 +1,8 @@
 <template>
-  <section v-if="appliances.length !== 0" class="flex gap-6">
+  <section
+    v-if="appliances.length !== 0"
+    class="flex gap-6"
+  >
     <ApplianceListItem
       v-for="appliance in appliances"
       :key="appliance._id"
@@ -9,7 +12,10 @@
       class="w-1/3"
     />
   </section>
-  <section v-else class="w-full h-full flex items-center justify-end">
+  <section
+    v-else
+    class="w-full h-full flex items-center justify-end"
+  >
     Is loading appliances....
   </section>
 </template>

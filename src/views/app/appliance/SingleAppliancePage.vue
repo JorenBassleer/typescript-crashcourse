@@ -12,7 +12,9 @@
         :with-buttons="true"
         @handle-change-page="handleChangePage($event)"
       />
-      <section v-else>Sorry, we could not find the appliance you're looking for</section>
+      <section v-else>
+        Sorry, we could not find the appliance you're looking for
+      </section>
     </div>
     <div class="w-1/5">
       <ApplianceCard :appliance="nextAppliance" />

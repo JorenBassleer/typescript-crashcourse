@@ -1,6 +1,9 @@
 <template>
   <FormLayout title="Register">
-    <form class="p-6 w-full flex flex-col gap-2 px-10" @submit.prevent="handleRegister">
+    <el-form
+      class="p-6 w-full flex flex-col gap-2 px-10"
+      @submit.prevent="handleRegister"
+    >
       <div class="flex flex-col">
         <label>Email</label>
         <BaseInput
@@ -12,13 +15,19 @@
       </div>
       <div class="flex flex-col">
         <label>Password</label>
-        <BaseInput v-model="newUser.password" type="password" placeholder="*******" />
+        <BaseInput
+          v-model="newUser.password"
+          type="password"
+          placeholder="*******"
+        />
       </div>
       <div class="flex justify-end items-center gap-6">
-        <BaseButton @click="handleRegister">Register</BaseButton>
+        <BaseButton @click="handleRegister">
+          Register
+        </BaseButton>
         <BaseButton>Register with Google</BaseButton>
       </div>
-    </form>
+    </el-form>
   </FormLayout>
 </template>
 <script setup lang="ts">
@@ -32,7 +41,7 @@ const router = useRouter();
 
 const newUser = ref<UserAuth>({
   email: '',
-  password: ''
+  password: '',
 });
 const handleRegister = async (): Promise<void> => {
   try {

@@ -1,6 +1,9 @@
 <template>
   <FormLayout title="Login">
-    <form class="p-6 w-full flex flex-col gap-2 px-10" @submit.prevent="handleLogin">
+    <form
+      class="p-6 w-full flex flex-col gap-2 px-10"
+      @submit.prevent="handleLogin"
+    >
       <div class="flex gap-2">
         Select user type
         <select placeholder="Select">
@@ -19,11 +22,22 @@
       </div>
       <div class="flex flex-col">
         <label>Password</label>
-        <BaseInput v-model="userLogin.password" type="password" placeholder="********" />
+        <BaseInput
+          v-model="userLogin.password"
+          type="password"
+          placeholder="********"
+        />
       </div>
       <div class="flex justify-end items-center gap-6">
-        <BaseButton @click="$router.push({ name: 'register' })">Register</BaseButton>
-        <BaseButton class="my-2" @click="handleLogin"> Login </BaseButton>
+        <BaseButton @click="$router.push({ name: 'register' })">
+          Register
+        </BaseButton>
+        <BaseButton
+          class="my-2"
+          @click="handleLogin"
+        >
+          Login
+        </BaseButton>
       </div>
     </form>
   </FormLayout>
@@ -39,7 +53,7 @@ import FormLayout from '@/components/form/FormLayout.vue';
 
 const userLogin = ref<UserAuth>({
   email: '',
-  password: ''
+  password: '',
 });
 
 const authStore = useAuthStore();

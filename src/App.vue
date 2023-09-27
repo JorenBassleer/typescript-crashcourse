@@ -1,6 +1,6 @@
 <template>
   <section>
-    <header></header>
+    <header />
     <main :class="{ 'flex w-full h-screen': auth.currentUser }">
       <TheNavBar :class="{ 'lg:w-1/6 rounded md:w-2/6 sm:w-3/5': auth.currentUser }" />
       <section :class="{ 'w-5/6 p-8': auth.currentUser }">

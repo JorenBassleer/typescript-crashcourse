@@ -1,5 +1,8 @@
 <template>
-  <router-link :to="routerTo" :class="routerClass">
+  <router-link
+    :to="routerTo"
+    :class="routerClass"
+  >
     {{ routerText }}
   </router-link>
 </template>
@@ -13,6 +16,6 @@ interface Props {
   routerClass?: string;
 }
 withDefaults(defineProps<Props>(), {
-  routerClass: 'text-white'
+  routerClass: 'text-white',
 });
 </script>

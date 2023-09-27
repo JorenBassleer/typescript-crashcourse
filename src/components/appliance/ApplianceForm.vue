@@ -1,14 +1,25 @@
 <template>
   <section>
     <h1>Appliance form</h1>
-    <form v-if="!isSubmitting" @submit.prevent="handleSubmitForm">
+    <form
+      v-if="!isSubmitting"
+      @submit.prevent="handleSubmitForm"
+    >
       Name
-      <input v-model="newAppliance.name" type="text" name="name" />
+      <input
+        v-model="newAppliance.name"
+        type="text"
+        name="name"
+      >
       Details
-      <textarea v-model="newAppliance.details"> </textarea>
+      <textarea v-model="newAppliance.details" />
       <section v-show="brands.length > 0">
         <select v-model="newAppliance.brand">
-          <option v-for="brand in brands" :key="brand._id" :value="brand._id">
+          <option
+            v-for="brand in brands"
+            :key="brand._id"
+            :value="brand._id"
+          >
             {{ brand.name }}
           </option>
         </select>
@@ -24,9 +35,13 @@
           </option>
         </select>
       </section>
-      <button type="submit">Submit</button>
+      <button type="submit">
+        Submit
+      </button>
     </form>
-    <section v-else>Submitting....</section>
+    <section v-else>
+      Submitting....
+    </section>
   </section>
 </template>
 <script setup lang="ts">
@@ -49,7 +64,7 @@ const newAppliance = ref<BaseAppliance>({
   name: '',
   details: '',
   brand: '',
-  type: ''
+  type: '',
 });
 const handleSubmitForm = async (): Promise<void> => {
   try {

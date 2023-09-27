@@ -9,7 +9,13 @@
         :router-to="item.routerTo"
         router-class="text-gray-700"
       />
-      <BaseButton class="mt-auto" type="danger" @click="handleLogout"> Log out </BaseButton>
+      <BaseButton
+        class="mt-auto"
+        type="danger"
+        @click="handleLogout"
+      >
+        Log out
+      </BaseButton>
     </section>
     <!-- Add cart or my current reservation somehwere -->
   </aside>
@@ -22,7 +28,7 @@ import { getAuth, signOut } from 'firebase/auth';
 const navItems = [
   { name: 'Dashboard', routerTo: { name: 'dashboard' } },
   { name: 'Appliances', routerTo: { name: 'index-appliances' } },
-  { name: 'idk nog iets', routerTo: { path: '/idk' } }
+  { name: 'idk nog iets', routerTo: { path: '/idk' } },
 ];
 
 const handleLogout = async (): Promise<void> => {

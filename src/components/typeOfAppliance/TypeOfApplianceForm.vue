@@ -1,7 +1,9 @@
 <template>
   <form @submit="handleFormSubmit">
-    <input v-model="newType.name" />
-    <button @click="handleFormSubmit">Submit</button>
+    <input v-model="newType.name">
+    <button @click="handleFormSubmit">
+      Submit
+    </button>
   </form>
 </template>
 <script setup lang="ts">
@@ -12,7 +14,7 @@ import { useTypeOfApplianceStore } from '@/stores/typeOfAppliance';
 const isSubmitting = ref<Boolean>(false);
 const typeOfApplianceStore = useTypeOfApplianceStore();
 const newType = ref<BaseTypeOfAppliance>({
-  name: ''
+  name: '',
 });
 
 const handleFormSubmit = async (): Promise<void> => {

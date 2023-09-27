@@ -1,8 +1,16 @@
 <template>
   <div class="greetings">
     <h3>
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
+      <a
+        href="https://vitejs.dev/"
+        target="_blank"
+        rel="noopener"
+      >Vite</a> +
+      <a
+        href="https://vuejs.org/"
+        target="_blank"
+        rel="noopener"
+      >Vue 3</a>. What's next?
     </h3>
   </div>
 </template>

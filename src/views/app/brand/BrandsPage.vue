@@ -1,6 +1,9 @@
 <template>
   <section>
-    <article v-for="brand in brands" :key="brand._id">
+    <article
+      v-for="brand in brands"
+      :key="brand._id"
+    >
       {{ brand.name }}
     </article>
   </section>
